@@ -1,4 +1,5 @@
 :root{
+  /*TODO: Mage a color palette*/
   --background: rgb(16,16,16);
   --nav: rgb(43, 13, 43);
   --text: white;
@@ -25,4 +26,8 @@ nav .nav-option {
   border-radius: 1vmax;
   text-wrap: nowrap;
   overflow: hidden;
+}
+nav a:link,nav a:visited{
+  color:white;
+  text-decoration: none;
 }

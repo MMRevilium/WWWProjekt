@@ -8,9 +8,12 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <header>
-  Test
-  </header>
+  <nav>
+    <div class="nav-option">Strona Główna</div>
+    <div class="nav-option">Lista buildów</div>
+    <div class="nav-option">Stwórz własny build</div>
+    <div class="nav-option">Zaloguj się</div>
+  </nav>
   <div id="main">
 
   </div>

@@ -1,9 +1,22 @@
 :root{
   --background: rgb(16,16,16);
+  --nav: rgb(43, 13, 43);
   --text: white;
 }
 body{
   margin:0;
   background-color: var(--background);
   color: var(--text);
+}
+nav{
+  width:100%;
+  background-color: var(--nav);
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap:1%;
+}
+nav .nav-option {
+  text-align: center;
+  background-color: rgb(83, 53, 83);
+  padding:4%;
 }

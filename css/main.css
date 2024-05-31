@@ -14,9 +14,15 @@ nav{
   display:grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap:1%;
+  padding-left:5%;
+  padding-right:5%;
+  box-sizing: border-box;
 }
 nav .nav-option {
   text-align: center;
   background-color: rgb(83, 53, 83);
   padding:4%;
+  border-radius: 1vmax;
+  text-wrap: nowrap;
+  overflow: hidden;
 }

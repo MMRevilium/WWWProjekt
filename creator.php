@@ -15,7 +15,14 @@
     <a href="login.html"><div class="nav-option">Zaloguj się</div></a>
   </nav>
   <div id="main">
-    Test
+    <form method="GET" action="insertBuild.php">
+      <div class="buildBox">
+        <input> <input> <input>
+        <input> <input> <input>
+        <input> <input> <input>
+      </div>
+    
+    </form>
   </div>
   <footer>
 

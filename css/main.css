@@ -40,6 +40,9 @@ nav a:link,nav a:visited{
   background-color: var(--nav);
 }
 
+
+/*BuildBoxCss*/
+
 .buildBox{
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;

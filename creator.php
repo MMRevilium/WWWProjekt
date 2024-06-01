@@ -17,9 +17,9 @@
   <div id="main">
     <form method="GET" action="insertBuild.php">
       <div class="buildBox">
-        <input> <input> <input>
-        <input> <input> <input>
-        <input> <input> <input>
+        <input name="slot" type="number"> <input name="slot" type="number"> <input name="slot" type="number">
+        <input name="slot" type="number"> <input name="slot" type="number"> <input name="slot" type="number">
+        <input name="slot" type="number"> <input name="slot" type="number"> <input name="slot" type="number">
       </div>
     
     </form>

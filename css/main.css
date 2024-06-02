@@ -8,7 +8,6 @@ body{
   margin:0;
   background-color: var(--background);
   color: var(--text);
-  height: 100vh;
 }
 nav{
   width:100%;
@@ -55,6 +54,12 @@ nav a:link,nav a:visited{
   aspect-ratio: 1/1;
   background-position: center;
   background-size: contain;
+}
+.buildBox select {
+  background-color:var(--background);
+  border:none;
+  color:white;
+  overflow-y: auto;
 }
 
 

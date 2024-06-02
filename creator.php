@@ -27,7 +27,7 @@
   
             $rownum = $result->num_rows;
   
-            echo "<select size='$rownum'>";
+            echo "<select size='$rownum' name='slot$i'>";
             while($row = $result->fetch_row()){
               echo "<option value='$row[0]' mypng='$row[2]'>$row[1]</option>";
             }

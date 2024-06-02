@@ -62,6 +62,15 @@ nav a:link,nav a:visited{
   overflow-y: auto;
 }
 
+/* usefull */
+/* .buildBox select option {
+  opacity: .7;
+}
+.buildBox select option:checked{
+  background: red;
+} */
+
+
 
 /* .buildBox>input::--webkit-outer-spin-button,
 .buildBox>input::--webkit-outer-spin-button {

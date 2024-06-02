@@ -53,15 +53,17 @@ nav a:link,nav a:visited{
 
 .buildBox>*{
   aspect-ratio: 1/1;
-  border:2px solid black;
+  background-position: center;
+  background-size: contain;
 }
 
-.buildBox>input::--webkit-outer-spin-button,
+
+/* .buildBox>input::--webkit-outer-spin-button,
 .buildBox>input::--webkit-outer-spin-button {
-  -webkit-appearance: none;
+  appearance: none;
   margin:0;
 }
 
 .buildBox>input[type=number] {
-  -moz-appearance: textfield;
-}
+  appearance: textfield;
+} */

@@ -14,7 +14,7 @@
     <form method="GET" action="insertBuild.php" id="BuildWrapper">
       <div class="buildBox">
         <?php
-          require("scriplet/db.php")
+          require("scriplet/db.php");
           for ($i=1; $i < 10; $i++) { 
             $sql = "SELECT * FROM itemy WHERE slot=$i";
             $result = $conn->query($sql);

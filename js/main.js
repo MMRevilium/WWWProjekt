@@ -27,16 +27,26 @@ $(".buildBox>select").hover(function() {
 //DisplayAttr
 $(".buildBox>select>option").click(function() {
   const sel = $(this).val();
-  console.log(sel);
+  const slot = $(this).parent().attr("name").charAt(4);
+  console.log(slot);
   $.post("scriplet/getAttr.php", {ItemID: +sel}, function(data) {
-    console.log(data);
-    let AttrArray = data.split("|");
-    AttrArray.pop();
-    for (let index = 0; index < AttrArray.length; index++) {
-      AttrArray[index]=AttrArray[index].split(",");
-      
+    //console.log(data);
+    if (data == "None") {}
+    else {
+      let AttrArray = data.split("|");
+      AttrArray.pop();
+      for (let index = 0; index < AttrArray.length; index++) {
+        AttrArray[index]=AttrArray[index].split(",");
+      }
+      console.log(AttrArray);
+      const chil = "#BuildAttr :nth-child("+slot+")";
+      let wstaw = "<img src='img/itemy/"+AttrArray[0][4]+"'>";
+      AttrArray.forEach(element => {
+        wstaw=wstaw+"<img src='img/umiejetnosci"+element[1]+"'><input type='radio' name='"+slot+element[2]+"'>";
+      });
+      $(chil).empty().append(wstaw);
+
     }
-    console.log(AttrArray);
   });
 
 

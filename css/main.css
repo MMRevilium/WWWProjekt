@@ -47,7 +47,13 @@ nav a:link,nav a:visited{
 }
 
 #BuildAttr {
-  
+  display: flex;
+  flex-direction: row;
+}
+
+#BuildAttr>div{
+  display: flex;
+  flex-direction: column;
 }
 
 /*BuildBoxCss*/

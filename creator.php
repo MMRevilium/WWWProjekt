@@ -36,10 +36,12 @@
           // echo "<select size='$rownum'>";
           // while($row = $result->fetch_row()){
           //   echo "<option value='$row[0]' mypng='$row[2]'>$row[1]</option>";
-          // }
+          // }/
         ?>
       </div>
-      <div id="BuildAttr"></div>
+      <div id="BuildAttr">
+
+      </div>
     </form>
   </div>
   <footer>

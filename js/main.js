@@ -28,6 +28,7 @@ $(".buildBox>select").hover(function() {
 $(".buildBox>select.Ability>option").click(function() {
   const sel = $(this).val();
   let slot = $(this).parent().attr("name").charAt(4);
+  const invslot=slot;
   console.log(slot);
   $.post("scriplet/getAttr.php", {ItemID: +sel}, function(data) {
     //console.log(data);
@@ -39,20 +40,22 @@ $(".buildBox>select.Ability>option").click(function() {
         AttrArray[index]=AttrArray[index].split(",");
       }
       console.log(AttrArray);
-      let chil = "#BuildAttr :nth-child("+slot+")";
-      let wstaw = "<img src='img/itemy/"+AttrArray[0][4]+"'>";
+      let chil = "#BuildAttr>:nth-child("+slot+")";
+      let wstaw = "<img src='img/itemy/"+AttrArray[0][3]+"'>";
       let keybind = AttrArray[0][2];
       AttrArray.forEach(element => {
-        wstaw=wstaw+"<img src='img/umiejetnosci"+element[1]+"'><input type='radio' name='"+slot+element[2]+"'>";
         if(element[2]!=keybind){
-          $(chil).empty().append(wstaw);
+          console.log(wstaw);
+          $(chil).empty().html(wstaw);
           keybind = element[2];
-          wstaw="<img src='img/itemy/"+AttrArray[0][4]+"'>";;
+          wstaw="<img src='img/itemy/"+AttrArray[0][3]+"'>";
           slot++;
-          chil="#BuildAttr :nth-child("+slot+")";
+          chil="#BuildAttr>:nth-child("+slot+")";
         }
+        wstaw=wstaw+"<img src='img/umiejetnosci/"+element[1]+"'><input type='radio' name='"+invslot+element[2]+"'>";
       });
-      $(chil).empty().append(wstaw);
+      console.log(wstaw);
+      $(chil).empty().html(wstaw);
     }
   });
 

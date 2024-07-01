@@ -25,9 +25,9 @@ $(".buildBox>select").hover(function() {
 });
 
 //DisplayAttr
-$(".buildBox>select>option").click(function() {
+$(".buildBox>select.Ability>option").click(function() {
   const sel = $(this).val();
-  const slot = $(this).parent().attr("name").charAt(4);
+  let slot = $(this).parent().attr("name").charAt(4);
   console.log(slot);
   $.post("scriplet/getAttr.php", {ItemID: +sel}, function(data) {
     //console.log(data);
@@ -39,13 +39,20 @@ $(".buildBox>select>option").click(function() {
         AttrArray[index]=AttrArray[index].split(",");
       }
       console.log(AttrArray);
-      const chil = "#BuildAttr :nth-child("+slot+")";
+      let chil = "#BuildAttr :nth-child("+slot+")";
       let wstaw = "<img src='img/itemy/"+AttrArray[0][4]+"'>";
+      let keybind = AttrArray[0][2];
       AttrArray.forEach(element => {
         wstaw=wstaw+"<img src='img/umiejetnosci"+element[1]+"'><input type='radio' name='"+slot+element[2]+"'>";
+        if(element[2]!=keybind){
+          $(chil).empty().append(wstaw);
+          keybind = element[2];
+          wstaw="<img src='img/itemy/"+AttrArray[0][4]+"'>";;
+          slot++;
+          chil="#BuildAttr :nth-child("+slot+")";
+        }
       });
       $(chil).empty().append(wstaw);
-
     }
   });
 

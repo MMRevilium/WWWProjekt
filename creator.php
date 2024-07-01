@@ -20,8 +20,13 @@
             $result = $conn->query($sql);
   
             $rownum = $result->num_rows;
-  
-            echo "<select size='$rownum' name='slot$i'>";
+            $wypisz = "<select size='$rownum' name='slot$i' ";
+            if(in_array($i,array(2,4,5,8))){
+              $wypisz=$wypisz."class='Ability'>";
+            }else {
+              $wypisz=$wypisz."";
+            }
+            echo $wypisz;
             while($row = $result->fetch_row()){
               echo "<option value='$row[0]' mypng='$row[2]'>$row[1]</option>";
             }

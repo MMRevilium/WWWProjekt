@@ -30,13 +30,13 @@
 
 
   $sql = "INSERT INTO `buildy` 
-  (`ID`, `Nazwa`, `Opis`, `obrazek`, `AutorID`, `BronID`, `BronAbility1`, `BronAbility2`, `BronPassive`, `OffHandID`, `HelmID`, `HelmAbility`, `HelmPassive`, `ZbrojaID`, `ZbrojaAbility`, `ZbrojaPassive`, `ButyID`, `ButyAbility`, `ButyPassive`, `PelerynaID`, `JedzenieID`, `PotkiID`) VALUES 
-  (NULL, '$nazwa', '$opis', '$obrazek', $autor, $slot4, $BronAbility1, $BronAbility2, $BronPassive, $slot6, $slot2, $HelmAbility, $HelmPassive, $slot5, $ZbrojaAbility, $ZbrojaPassive, $slot8, $ButyAbility, $ButyPassive, $slot3, $slot7, $slot9)";
+  (`ID`, `Nazwa`, `Opis`, `obrazek`, `AutorID`, `BronID`, `BronAbility1`, `BronAbility2`, `BronPassive`, `OffHandID`, `HelmID`, `HelmAbility`, `HelmPassive`, `ZbrojaID`, `ZbrojaAbility`, `ZbrojaPassive`, `ButyID`, `ButyAbility`, `ButyPassive`, `PelerynaID`, `JedzenieID`, `PotkiID`, `BagID`) VALUES 
+  (NULL, '$nazwa', '$opis', '$obrazek', $autor, $slot4, $BronAbility1, $BronAbility2, $BronPassive, $slot6, $slot2, $HelmAbility, $HelmPassive, $slot5, $ZbrojaAbility, $ZbrojaPassive, $slot8, $ButyAbility, $ButyPassive, $slot3, $slot7, $slot9, $slot1)";
   echo "<br>";
   echo $sql;
   echo "<br>";
   $conn->query($sql);
   $conn->close();
-  header("location: ../Index.php")
+  header("location: ../Index.php");
 
 ?>

@@ -64,6 +64,12 @@ $(".buildBox>select.Ability>option").click(function() {
       $(chil).empty().html(wstaw);
     }
   });
-
-
 });
+$(".buildCard").on("click", function()
+{
+  let id = $(this).find(">:first-child()").val();
+  window.location="details.php?id="+id;
+});
+// $(document).ready(function(){
+//   $
+// })

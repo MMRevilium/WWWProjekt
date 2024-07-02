@@ -40,6 +40,47 @@ nav a:link,nav a:visited{
 }
 
 
+#buildGallery{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:1ch;
+  padding:1ch;
+  width: 100%;
+  -webkit-text-stroke: .7px black;
+}
+.buildCard {
+  border:2px solid gray;
+  border-radius: 3ch;
+  box-sizing: border-box;
+  padding: 2ch;
+  text-align: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 0;
+}
+.buildDisplay{
+  box-sizing: border-box;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap:10px;
+  padding:2%;
+  aspect-ratio: 1/1;
+  width: 100%;
+  border:2px solid gray;
+  border-radius: 3ch;
+  background-color: var(--nav);
+}
+.buildDisplay img{
+  width: 100%;
+  height: 100%;
+}
+.buildInfo>h3{
+  margin:0;
+  font-size: 200%;
+}
+
 
 /*BuildWrapper*/
 #BuildWrapper{
@@ -86,6 +127,8 @@ nav a:link,nav a:visited{
   grid-template-rows: 1fr 1fr 1fr;
   gap:10px;
   padding:2%;
+  aspect-ratio: 1/1;
+  width: 100%;
 }
 
 .buildBox>*{
@@ -141,3 +184,10 @@ nav a:link,nav a:visited{
 .buildBox>input[type=number] {
   appearance: textfield;
 } */
+
+.grayscale{
+  filter: grayscale(1);
+}
+.whiteshadow{
+  filter: drop-shadow(0px 0px 10px white);
+}

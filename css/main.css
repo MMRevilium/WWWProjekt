@@ -44,6 +44,8 @@ nav a:link,nav a:visited{
 #BuildWrapper{
   display: grid;
   grid-template-columns: 1fr 1fr;
+  min-height: 500px;
+  min-width: 930px;
 }
 
 #BuildAttr {

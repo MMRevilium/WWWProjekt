@@ -54,8 +54,6 @@
           <div class="attrbar"></div>
           <div class="attrbar"></div>
           <div class="attrbar"></div>
-          <div class="attrbar"></div>
-          <div class="attrbar"></div>
       </div>
     </form>
   </div>

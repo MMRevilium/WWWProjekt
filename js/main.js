@@ -28,6 +28,10 @@ $(".buildBox>select").hover(function() {
 $(".buildBox>select.Ability>option").click(function() {
   const sel = $(this).val();
   let slot = $(this).parent().attr("name").charAt(4);
+  if(slot == 2)slot=1;
+  if(slot == 4)slot=3;
+  if(slot == 5)slot=6;
+  if(slot == 8)slot=8;
   const invslot=slot;
   console.log(slot);
   $.post("scriplet/getAttr.php", {ItemID: +sel}, function(data) {

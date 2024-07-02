@@ -17,7 +17,7 @@ if (isset($_POST["login"])) {
   $result = $conn->query($sql);
   if ($result->num_rows == 1) {
     $_SESSION["login"] = $login;
-    $_SESSION["id"] = $result->fetch_object()->id;
+    $_SESSION["id"] = $result->fetch_object()->ID;
     header("Location: index.php");
   } 
   else {

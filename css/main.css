@@ -40,6 +40,7 @@ nav a:link,nav a:visited{
 }
 
 
+
 /*BuildWrapper*/
 #BuildWrapper{
   display: grid;
@@ -59,7 +60,12 @@ nav a:link,nav a:visited{
   flex-direction: row;
   flex:1;
   background-color: rgba(255, 255, 255, 0.2);
-  margin:1px;
+  margin:2px;
+  margin-right: 0;
+  margin-left: 0;
+}
+#BuildAttr>div:last-child(){
+  margin-bottom: 0;
 }
 #BuildAttr>div>img{
   align-self: center;
@@ -92,6 +98,28 @@ nav a:link,nav a:visited{
   border:none;
   color:white;
   overflow-y: auto;
+}
+
+#BuildOptions{
+  padding:1%;
+  padding-top: 0;
+  display: flex;
+}
+#BuildOptions>div{
+  box-sizing: border-box;
+  padding: 2ch;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#BuildOptions input{
+}
+#BuildOptions textarea{
+  resize: vertical;
+}
+#BuildOptions input[type=button],#BuildOptions>input[type=submit]{
 }
 
 /* usefull */

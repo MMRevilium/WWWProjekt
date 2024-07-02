@@ -11,49 +11,53 @@
 <body>
 <?php require("scriplet/menu.php");?>
   <div id="main">
-    <form method="GET" action="insertBuild.php" id="BuildWrapper">
-      <div class="buildBox">
-        <?php
-          require("scriplet/db.php");
-          for ($i=1; $i < 10; $i++) { 
-            $sql = "SELECT * FROM itemy WHERE slot=$i";
-            $result = $conn->query($sql);
-  
-            $rownum = $result->num_rows;
-            $wypisz = "<select size='$rownum' name='slot$i' ";
-            if(in_array($i,array(2,4,5,8))){
-              $wypisz=$wypisz."class='Ability'>";
-            }else {
-              $wypisz=$wypisz."";
+    <form method="POST" action="fun/insertBuild.php" enctype="multipart/form-data">
+      <div id="BuildWrapper">
+        <div class="buildBox">
+          <?php
+            require("scriplet/db.php");
+            for ($i=1; $i < 10; $i++) { 
+              $sql = "SELECT * FROM itemy WHERE slot=$i";
+              $result = $conn->query($sql);
+    
+              $rownum = $result->num_rows;
+              $wypisz = "<select required size='$rownum' name='slot$i'";
+              if(in_array($i,array(2,4,5,8))){
+                $wypisz=$wypisz."class='Ability'>";
+              }else {
+                $wypisz=$wypisz."";
+              }
+              echo $wypisz;
+              while($row = $result->fetch_row()){
+                echo "<option value='$row[0]' mypng='$row[2]'>$row[1]</option>";
+              }
+              echo "</select>";
             }
-            echo $wypisz;
-            while($row = $result->fetch_row()){
-              echo "<option value='$row[0]' mypng='$row[2]'>$row[1]</option>";
-            }
-            echo "</select>";
-          }
-            
-          // $sql = "SELECT * FROM itemy WHERE slot=6";
-          // $result = $conn->query($sql);
-
-          // $rownum = $result->num_rows;
-
-          // echo "<select size='$rownum'>";
-          // while($row = $result->fetch_row()){
-          //   echo "<option value='$row[0]' mypng='$row[2]'>$row[1]</option>";
-          // }/
-        ?>
+          ?>
+        </div>
+        <div id="BuildAttr">
+            <div class="attrbar"></div>
+            <div class="attrbar"></div>
+            <div class="attrbar"></div>
+            <div class="attrbar"></div>
+            <div class="attrbar"></div>
+            <div class="attrbar"></div>
+            <div class="attrbar"></div>
+            <div class="attrbar"></div>
+            <div class="attrbar"></div>
+        </div>
       </div>
-      <div id="BuildAttr">
-          <div class="attrbar"></div>
-          <div class="attrbar"></div>
-          <div class="attrbar"></div>
-          <div class="attrbar"></div>
-          <div class="attrbar"></div>
-          <div class="attrbar"></div>
-          <div class="attrbar"></div>
-          <div class="attrbar"></div>
-          <div class="attrbar"></div>
+      <div id="BuildOptions">
+        <div>
+            <input type="text" name="nazwa" placeholder="Nazwa" required>
+            <textarea name="opis" placeholder="Opis"></textarea>
+            <label>Wybierz zdjęcie</label>
+            <input type="file" name="obrazek" required>
+        </div>
+        <div>
+          <input type="button" value="Wyczysc">
+          <input type="submit" value="Zapisz">
+        </div>
       </div>
     </form>
   </div>

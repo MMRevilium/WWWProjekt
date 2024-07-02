@@ -1,5 +1,4 @@
 //////Display item
-
 //Hover
 $(".buildBox>select>option").hover(function() {
   $img = "url(img/itemy/" + $(this).attr('mypng');
@@ -47,6 +46,7 @@ $(".buildBox>select.Ability>option").click(function() {
       let chil = "#BuildAttr>:nth-child("+slot+")";
       let wstaw = "<img src='img/itemy/"+AttrArray[0][3]+"'>";
       let keybind = AttrArray[0][2];
+      let abbInd=0;
       AttrArray.forEach(element => {
         if(element[2]!=keybind){
           console.log(wstaw);
@@ -55,8 +55,10 @@ $(".buildBox>select.Ability>option").click(function() {
           wstaw="<img src='img/itemy/"+AttrArray[0][3]+"'>";
           slot++;
           chil="#BuildAttr>:nth-child("+slot+")";
+          abbInd=0;
         }
-        wstaw=wstaw+"<img src='img/umiejetnosci/"+element[1]+"'><input type='radio' name='"+invslot+element[2]+"'>";
+        wstaw=wstaw+"<img src='img/umiejetnosci/"+element[1]+"'><input type='radio' name='"+invslot+element[2]+"'value='"+abbInd+"' required>";
+        abbInd++;
       });
       console.log(wstaw);
       $(chil).empty().html(wstaw);

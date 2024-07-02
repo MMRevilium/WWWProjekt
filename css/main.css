@@ -11,6 +11,7 @@ body{
 }
 nav{
   width:100%;
+  height:4rem;
   background-color: var(--nav);
   display:grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -31,3 +32,84 @@ nav a:link,nav a:visited{
   color:white;
   text-decoration: none;
 }
+#main{
+  width: 90%;
+  height:100%;
+  margin:auto;
+  background-color: var(--nav);
+}
+
+
+/*BuildWrapper*/
+#BuildWrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 500px;
+  min-width: 930px;
+}
+
+#BuildAttr {
+  display: flex;
+  flex-direction: column;
+  margin:2%;
+}
+
+#BuildAttr>div{
+  display: flex;
+  flex-direction: row;
+  flex:1;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin:1px;
+}
+#BuildAttr>div>img{
+  align-self: center;
+  max-width: 50px;
+  max-height: 50px;
+}
+
+
+
+
+
+/*BuildBoxCss*/
+
+.buildBox{
+  max-width: 500px;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap:10px;
+  padding:2%;
+}
+
+.buildBox>*{
+  aspect-ratio: 1/1;
+  background-position: center;
+  background-size: contain;
+}
+.buildBox select {
+  background-color:var(--background);
+  border:none;
+  color:white;
+  overflow-y: auto;
+}
+
+/* usefull */
+/* .buildBox select option {
+  opacity: .7;
+}
+.buildBox select option:checked{
+  background: red;
+} */
+
+
+
+/* .buildBox>input::--webkit-outer-spin-button,
+.buildBox>input::--webkit-outer-spin-button {
+  appearance: none;
+  margin:0;
+}
+
+.buildBox>input[type=number] {
+  appearance: textfield;
+} */

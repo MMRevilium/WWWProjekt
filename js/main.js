@@ -32,9 +32,7 @@ $(".buildBox>select.Ability>option").click(function() {
   if(slot == 5)slot=6;
   if(slot == 8)slot=8;
   const invslot=slot;
-  console.log(slot);
   $.post("scriplet/getAttr.php", {ItemID: +sel}, function(data) {
-    //console.log(data);
     if (data == "None") {}
     else {
       let AttrArray = data.split("|");
@@ -42,14 +40,12 @@ $(".buildBox>select.Ability>option").click(function() {
       for (let index = 0; index < AttrArray.length; index++) {
         AttrArray[index]=AttrArray[index].split(",");
       }
-      console.log(AttrArray);
       let chil = "#BuildAttr>:nth-child("+slot+")";
       let wstaw = "<img src='img/itemy/"+AttrArray[0][3]+"'>";
       let keybind = AttrArray[0][2];
       let abbInd=0;
       AttrArray.forEach(element => {
         if(element[2]!=keybind){
-          console.log(wstaw);
           $(chil).empty().html(wstaw);
           keybind = element[2];
           wstaw="<img src='img/itemy/"+AttrArray[0][3]+"'>";
@@ -57,11 +53,26 @@ $(".buildBox>select.Ability>option").click(function() {
           chil="#BuildAttr>:nth-child("+slot+")";
           abbInd=0;
         }
-        wstaw=wstaw+"<img src='img/umiejetnosci/"+element[1]+"'><input type='radio' name='"+invslot+element[2]+"'value='"+abbInd+"' required>";
+        wstaw=wstaw+"<img src='img/umiejetnosci/"+element[1]+"'class='abimg'><input type='radio' name='"+invslot+element[2]+"'value='"+abbInd+"' required>";
         abbInd++;
       });
-      console.log(wstaw);
       $(chil).empty().html(wstaw);
+
+      $(".attrbar>input").hide();
+      $(".attrbar>img.abimg").addClass("grayscale");
+      $(".attrbar>input[checked]").prev().removeClass("grayscale").addClass("whiteshadow");
+      $(".attrbar>img.abimg").on("click",function(){
+        let named = "input[name='"+$(this).next().attr('name')+"']";
+        $(named).removeAttr("checked");
+        $(this).next().attr("checked","1");
+        $(this).parent().children(".abimg").addClass("grayscale").removeClass("whiteshadow");
+        $(this).removeClass("grayscale").addClass("whiteshadow");
+      });
+      $(".attrbar>img.abimg").hover(function(){
+        $(this).css("transform","scale(1.2)");
+      },function(){
+        $(this).css("transform","scale(1)");
+      })
     }
   });
 });
@@ -96,9 +107,7 @@ $(".buildBox>select.Ability>option[selected]").each(function() {
   if(slot == 5)slot=6;
   if(slot == 8)slot=8;
   const invslot=slot;
-  console.log(slot);
   $.post("scriplet/getAttr.php", {ItemID: +sel}, function(data) {
-    //console.log(data);
     if (data == "None") {}
     else {
       let AttrArray = data.split("|");
@@ -106,16 +115,13 @@ $(".buildBox>select.Ability>option[selected]").each(function() {
       for (let index = 0; index < AttrArray.length; index++) {
         AttrArray[index]=AttrArray[index].split(",");
       }
-      console.log(AttrArray);
       let chil = "#BuildAttr>:nth-child("+slot+")";
       let selAb = $(chil).text();
-      console.log("selAb: "+ selAb);
       let wstaw = "<img src='img/itemy/"+AttrArray[0][3]+"'>";
       let keybind = AttrArray[0][2];
       let abbInd=0;
       AttrArray.forEach(element => {
         if(element[2]!=keybind){
-          console.log(wstaw);
           $(chil).empty().html(wstaw);
           keybind = element[2];
           wstaw="<img src='img/itemy/"+AttrArray[0][3]+"'>";
@@ -124,23 +130,43 @@ $(".buildBox>select.Ability>option[selected]").each(function() {
           selAb = $(chil).text();
           abbInd=0;
         }
-        wstaw=wstaw+"<img src='img/umiejetnosci/"+element[1]+"'><input type='radio' name='"+invslot+element[2]+"'value='"+abbInd+"' required";
+        wstaw=wstaw+"<img src='img/umiejetnosci/"+element[1]+"' class='abimg'><input type='radio' name='"+invslot+element[2]+"'value='"+abbInd+"' required";
         if (selAb==abbInd) {wstaw+=" checked";}
         wstaw+=">";
         abbInd++;
       });
-      console.log(wstaw);
       $(chil).empty().html(wstaw);
+
+      $(".attrbar>input").hide();
+      $(".attrbar>img.abimg").addClass("grayscale");
+      $(".attrbar>input[checked]").prev().removeClass("grayscale").addClass("whiteshadow");
+      $(".attrbar>img.abimg").on("click",function(){
+        let named = "input[name='"+$(this).next().attr('name')+"']";
+        $(named).removeAttr("checked");
+        $(this).next().attr("checked","1");
+        $(this).parent().children(".abimg").addClass("grayscale").removeClass("whiteshadow");
+        $(this).removeClass("grayscale").addClass("whiteshadow");
+      })
+      $(".attrbar>img.abimg").hover(function(){
+        $(this).css("transform","scale(1.2)");
+      },function(){
+        $(this).css("transform","scale(1)");
+      })
     }
   });
 });
 
 $("#saveNew").hover(function(){
-  console.log("test");
   $("form").attr("action","fun/insertBuild.php");
 });
 $("#updateBuild").hover(function(){
-  console.log("test");
-
   $("form").attr("action","fun/updateBuild.php");
+});
+
+$(".buildCard").hover(function(){
+  $(this).css("transform","scale(1.05)");
+  $(this).css("z-index","9");
+}, function(){
+  $(this).css("transform","scale(1)");
+  $(this).css("z-index","1");
 });

@@ -25,6 +25,7 @@
 
   $nazwa=$_POST["nazwa"];
   $opis=$_POST["opis"];
+  if(isset($_FILES["obrazek"])){
   $obrazek = basename($_FILES["obrazek"]["name"]);
   move_uploaded_file($_FILES["obrazek"]["tmp_name"], "../img/userIMG/$obrazek");
 
@@ -32,6 +33,11 @@
   $sql = "INSERT INTO `buildy` 
   (`ID`, `Nazwa`, `Opis`, `obrazek`, `AutorID`, `BronID`, `BronAbility1`, `BronAbility2`, `BronPassive`, `OffHandID`, `HelmID`, `HelmAbility`, `HelmPassive`, `ZbrojaID`, `ZbrojaAbility`, `ZbrojaPassive`, `ButyID`, `ButyAbility`, `ButyPassive`, `PelerynaID`, `JedzenieID`, `PotkiID`, `BagID`) VALUES 
   (NULL, '$nazwa', '$opis', '$obrazek', $autor, $slot4, $BronAbility1, $BronAbility2, $BronPassive, $slot6, $slot2, $HelmAbility, $HelmPassive, $slot5, $ZbrojaAbility, $ZbrojaPassive, $slot8, $ButyAbility, $ButyPassive, $slot3, $slot7, $slot9, $slot1)";
+  } else {
+    $sql = "INSERT INTO `buildy` 
+  (`ID`, `Nazwa`, `Opis`, `obrazek`, `AutorID`, `BronID`, `BronAbility1`, `BronAbility2`, `BronPassive`, `OffHandID`, `HelmID`, `HelmAbility`, `HelmPassive`, `ZbrojaID`, `ZbrojaAbility`, `ZbrojaPassive`, `ButyID`, `ButyAbility`, `ButyPassive`, `PelerynaID`, `JedzenieID`, `PotkiID`, `BagID`) VALUES 
+  (NULL, '$nazwa', '$opis', NULL, $autor, $slot4, $BronAbility1, $BronAbility2, $BronPassive, $slot6, $slot2, $HelmAbility, $HelmPassive, $slot5, $ZbrojaAbility, $ZbrojaPassive, $slot8, $ButyAbility, $ButyPassive, $slot3, $slot7, $slot9, $slot1)";
+  }
   echo "<br>";
   echo $sql;
   echo "<br>";

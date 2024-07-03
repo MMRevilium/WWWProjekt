@@ -73,3 +73,74 @@ $(".buildCard").on("click", function()
 // $(document).ready(function(){
 //   $
 // })
+
+$("#editButton").on("click",function(){
+  let id = $(this).attr('data');
+  let urll = "edit.php?id="+id;
+  window.location=urll;
+})
+
+//LoadForEdit
+$(".buildBox>select").each(function() {
+  $(this).find(":selected").each(function(){
+    $test = "url(img/itemy/" + $(this).attr('mypng');
+    $(this).parent().css("background-image",$test);
+  });
+});
+
+$(".buildBox>select.Ability>option[selected]").each(function() {
+  const sel = $(this).val();
+  let slot = $(this).parent().attr("name").charAt(4);
+  if(slot == 2)slot=1;
+  if(slot == 4)slot=3;
+  if(slot == 5)slot=6;
+  if(slot == 8)slot=8;
+  const invslot=slot;
+  console.log(slot);
+  $.post("scriplet/getAttr.php", {ItemID: +sel}, function(data) {
+    //console.log(data);
+    if (data == "None") {}
+    else {
+      let AttrArray = data.split("|");
+      AttrArray.pop();
+      for (let index = 0; index < AttrArray.length; index++) {
+        AttrArray[index]=AttrArray[index].split(",");
+      }
+      console.log(AttrArray);
+      let chil = "#BuildAttr>:nth-child("+slot+")";
+      let selAb = $(chil).text();
+      console.log("selAb: "+ selAb);
+      let wstaw = "<img src='img/itemy/"+AttrArray[0][3]+"'>";
+      let keybind = AttrArray[0][2];
+      let abbInd=0;
+      AttrArray.forEach(element => {
+        if(element[2]!=keybind){
+          console.log(wstaw);
+          $(chil).empty().html(wstaw);
+          keybind = element[2];
+          wstaw="<img src='img/itemy/"+AttrArray[0][3]+"'>";
+          slot++;
+          chil="#BuildAttr>:nth-child("+slot+")";
+          selAb = $(chil).text();
+          abbInd=0;
+        }
+        wstaw=wstaw+"<img src='img/umiejetnosci/"+element[1]+"'><input type='radio' name='"+invslot+element[2]+"'value='"+abbInd+"' required";
+        if (selAb==abbInd) {wstaw+=" checked";}
+        wstaw+=">";
+        abbInd++;
+      });
+      console.log(wstaw);
+      $(chil).empty().html(wstaw);
+    }
+  });
+});
+
+$("#saveNew").hover(function(){
+  console.log("test");
+  $("form").attr("action","fun/insertBuild.php");
+});
+$("#updateBuild").hover(function(){
+  console.log("test");
+
+  $("form").attr("action","fun/updateBuild.php");
+});

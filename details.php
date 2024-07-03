@@ -34,6 +34,7 @@
         </div>
         <div id="BuildAttr">
             <?php
+            //helm
                           $abbind=0;
                           $umint=0;
               $sql = "SELECT umiejetnosci.ID, umiejetnosci.Obrazek, itemyumiejetnosci.KeyBind, itemy.Obrazek FROM umiejetnosci 
@@ -54,7 +55,7 @@
                 }
                 
 
-                echo "<img src='img/umiejetnosci/$um[1]' test='$abbind $umint' class='";
+                echo "<img src='img/umiejetnosci/$um[1]' class='";
                 if ($abbind==$row[12+$umint]){
                   echo 'whiteshadow';
                 } else {
@@ -69,6 +70,7 @@
               echo "</div>";
               $abbind=0;
               $umint=0;
+              //bron
 
               $sql = "SELECT umiejetnosci.ID, umiejetnosci.Obrazek, itemyumiejetnosci.KeyBind, itemy.Obrazek FROM umiejetnosci 
                 JOIN itemyumiejetnosci ON itemyumiejetnosci.UmiejetnosciID = umiejetnosci.ID 
@@ -88,7 +90,7 @@
                 }
                 
 
-                echo "<img src='img/umiejetnosci/$um[1]'  test='$abbind $umint' class='";
+                echo "<img src='img/umiejetnosci/$um[1]' class='";
                 if ($abbind==$row[7+$umint]){
                   echo 'whiteshadow';
                 } else {
@@ -103,6 +105,7 @@
               echo "</div>";
               $abbind=0;
               $umint=0;
+              //armor
 
               $sql = "SELECT umiejetnosci.ID, umiejetnosci.Obrazek, itemyumiejetnosci.KeyBind, itemy.Obrazek FROM umiejetnosci 
                 JOIN itemyumiejetnosci ON itemyumiejetnosci.UmiejetnosciID = umiejetnosci.ID 
@@ -122,7 +125,7 @@
                 }
                 
 
-                echo "<img src='img/umiejetnosci/$um[1]'  test='$abbind $umint' class='";
+                echo "<img src='img/umiejetnosci/$um[1]' class='";
                 if ($abbind==$row[15+$umint]){
                   echo 'whiteshadow';
                 } else {
@@ -137,6 +140,7 @@
               echo "</div>";
               $abbind=0;
               $umint=0;
+              //boots
 
               $sql = "SELECT umiejetnosci.ID, umiejetnosci.Obrazek, itemyumiejetnosci.KeyBind, itemy.Obrazek FROM umiejetnosci 
                 JOIN itemyumiejetnosci ON itemyumiejetnosci.UmiejetnosciID = umiejetnosci.ID 
@@ -173,6 +177,20 @@
               }
               echo "</div>";
             ?>
+        </div>
+      </div>
+      <div id="BuildOptions">
+        <div>
+          <?php
+          echo "<div class='center font200'>$row[1]</div> <sub class='center'>by $row[5]</sub> <div>Opis: $row[2]</div>";
+          ?>
+        </div>
+        <div>
+          <?php
+            if($_SESSION['id']==$row[4]){
+              echo "<input type='button' value='Edytuj' id='editButton' data='$row[0]'>";
+            }
+          ?>
         </div>
       </div>
       </div>

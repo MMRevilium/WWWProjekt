@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 03 Lip 2024, 16:48
+-- Czas generowania: 05 Lip 2024, 23:13
 -- Wersja serwera: 10.4.25-MariaDB
 -- Wersja PHP: 8.1.10
 
@@ -58,11 +58,16 @@ CREATE TABLE `buildy` (
 --
 
 INSERT INTO `buildy` (`ID`, `Nazwa`, `Opis`, `obrazek`, `AutorID`, `BronID`, `BronAbility1`, `BronAbility2`, `BronPassive`, `OffHandID`, `HelmID`, `HelmAbility`, `HelmPassive`, `ZbrojaID`, `ZbrojaAbility`, `ZbrojaPassive`, `ButyID`, `ButyAbility`, `ButyPassive`, `PelerynaID`, `JedzenieID`, `PotkiID`, `BagID`) VALUES
-(8, 'byubuyh', '', 'DBMockup2 - Copy.png', 2, 97, 0, 0, 0, 83, 1, 0, 0, 28, 0, 0, 55, 0, 0, 107, 109, 111, 142),
-(9, 'vtyyvtu', '', 'hiuj.png', 2, 143, 0, 0, 0, 85, 1, 0, 0, 29, 0, 0, 55, 0, 0, 107, 109, 111, 142),
-(10, 'Fiend', '', 'placeholderitem.png', 2, 98, 1, 2, 2, 84, 3, 2, 2, 30, 1, 2, 57, 2, 1, 107, 109, 111, 142),
-(11, 'Testing', 'Testing', '', 2, 98, 1, 2, 2, 84, 2, 1, 1, 30, 1, 2, 57, 2, 1, 107, 109, 111, 142),
-(12, 'Testinging', 'Testing', '', 2, 98, 1, 2, 2, 84, 2, 1, 1, 30, 1, 2, 57, 2, 1, 107, 109, 111, 142);
+(14, 'TestBuild', 'Testowy build postaci', 'Autograf.png', 2, 98, 1, 2, 1, 83, 2, 1, 0, 30, 2, 2, 55, 0, 1, 107, 109, 111, 142),
+(15, 'TestBuild', 'Testowy build postaci', '', 2, 98, 1, 2, 1, 83, 2, 1, 0, 30, 2, 2, 55, 0, 1, 107, 109, 111, 142),
+(16, 'TestBuild', 'Testowy build postaci', '', 2, 98, 1, 2, 1, 83, 2, 1, 0, 30, 2, 2, 55, 0, 1, 107, 109, 111, 142),
+(21, 'TestBuild', 'Testowy build postaci', '', 2, 98, 0, 2, 0, 83, 2, 1, 2, 30, 2, 2, 55, 1, 2, 107, 109, 111, 142),
+(22, 'TestBuild', 'Testowy build postaci', 'Autograf1.png', 2, 98, 1, 2, 1, 83, 2, 1, 0, 30, 2, 2, 55, 0, 1, 107, 109, 111, 142),
+(23, 'TestBuild', 'Testowy build postaci', 'Autograf2.png', 2, 98, 1, 2, 1, 83, 2, 1, 0, 30, 2, 2, 55, 0, 1, 107, 109, 111, 142),
+(24, 'TestBuild', 'Testowy build postaci', 'Autograf.png', 2, 98, 1, 2, 1, 83, 2, 1, 0, 30, 2, 2, 55, 0, 1, 107, 109, 111, 142),
+(25, 'TestBuild', 'Testowy build postaci', 'Autograf.png', 2, 98, 0, 2, 0, 83, 2, 1, 2, 30, 2, 2, 55, 1, 2, 107, 109, 111, 142),
+(26, 'HolyHelm', 'Testowy build postaci, ale inny', 'Pp.png', 2, 98, 0, 0, 0, 83, 1, 0, 0, 28, 2, 2, 55, 1, 2, 107, 109, 111, 142),
+(27, 'Fiend', 'Fiend build', 'Zdjęcie2.png', 1, 143, 0, 2, 0, 94, 3, 2, 1, 30, 2, 0, 57, 2, 2, 107, 109, 111, 142);
 
 -- --------------------------------------------------------
 
@@ -301,16 +306,17 @@ CREATE TABLE `uzytkownicy` (
   `ID` int(11) NOT NULL,
   `Nick` text NOT NULL,
   `Login` text NOT NULL,
-  `Password` text NOT NULL
+  `Password` text NOT NULL,
+  `AdminStatus` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Zrzut danych tabeli `uzytkownicy`
 --
 
-INSERT INTO `uzytkownicy` (`ID`, `Nick`, `Login`, `Password`) VALUES
-(1, 'Revilium', 'Revilium', '6c14da109e294d1e8155be8aa4b1ce8e'),
-(2, 'Admin', 'Admin', '21232f297a57a5a743894a0e4a801fc3');
+INSERT INTO `uzytkownicy` (`ID`, `Nick`, `Login`, `Password`, `AdminStatus`) VALUES
+(1, 'Revilium', 'Revilium', '6c14da109e294d1e8155be8aa4b1ce8e', NULL),
+(2, 'Admin', 'Admin', '21232f297a57a5a743894a0e4a801fc3', 1);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -365,7 +371,7 @@ ALTER TABLE `uzytkownicy`
 -- AUTO_INCREMENT dla tabeli `buildy`
 --
 ALTER TABLE `buildy`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT dla tabeli `itemy`

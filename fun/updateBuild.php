@@ -27,7 +27,7 @@
 
   $nazwa=$_POST["nazwa"];
   $opis=$_POST["opis"];
-  if(isset($_FILES["obrazek"])){
+  if(isset($_FILES["obrazek"]) && $_FILES["obrazek"]["name"]!=""){
     $obrazek = basename($_FILES["obrazek"]["name"]);
     move_uploaded_file($_FILES["obrazek"]["tmp_name"], "../img/userIMG/$obrazek");
     $sql = "UPDATE `buildy` 
@@ -38,7 +38,7 @@
       WHERE `ID` = $buildID;";
   } else {
     $sql = "UPDATE `buildy` 
-    SET `Nazwa` = '$nazwa', `Opis` = '$opis', `obrazek` = NULL, `AutorID` = $autor, `BronID` = $slot4, 
+    SET `Nazwa` = '$nazwa', `Opis` = '$opis', `BronID` = $slot4, 
         `BronAbility1` = $BronAbility1, `BronAbility2` = $BronAbility2, `BronPassive` = $BronPassive, `OffHandID` = $slot6, `HelmID` = $slot2, 
         `HelmAbility` = $HelmAbility, `HelmPassive` = $HelmPassive, `ZbrojaID` = $slot5, `ZbrojaAbility` = $ZbrojaAbility, `ZbrojaPassive` = $ZbrojaPassive, 
         `ButyID` = $slot8, `ButyAbility` = $ButyAbility, `ButyPassive` = $ButyPassive, `PelerynaID` = $slot3, `JedzenieID` = $slot7, `PotkiID` = $slot9, `BagID` = $slot1 

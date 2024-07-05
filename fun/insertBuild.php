@@ -28,6 +28,14 @@
   if(isset($_FILES["obrazek"])){
   $obrazek = basename($_FILES["obrazek"]["name"]);
   $obrazek = str_replace(" ","",$obrazek);
+ if(file_exists("../img/userIMG/$obrazek")){
+  $num=0;
+  $obrazektmp=substr($obrazek,0,-4);
+  while(file_exists("../img/userIMG/$obrazek")){
+    $num++;
+    $obrazek=$obrazektmp.$num.".png";
+  }
+ }
   move_uploaded_file($_FILES["obrazek"]["tmp_name"], "../img/userIMG/$obrazek");
 
 

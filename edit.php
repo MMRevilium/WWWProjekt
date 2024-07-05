@@ -96,9 +96,7 @@
       </div>
     </form>
   </div>
-  <footer>
-
-  </footer>
+  <?php require("scriplet/footer.php");?>
 </body>
 <script src="js/main.js"></script>
 </html>

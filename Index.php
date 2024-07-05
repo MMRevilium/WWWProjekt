@@ -10,10 +10,13 @@
 <body>
 <?php require("scriplet/menu.php");?>
   <div id="main">
+    <div id="siteInfo">
+    
+    </div>
+  <div id="recentBuild">
 
   </div>
-  <footer>
-
-  </footer>
+  </div>
+  <?php require("scriplet/footer.php");?>
 </body>
 </html>

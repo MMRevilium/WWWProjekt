@@ -210,13 +210,15 @@ input[type="button"]:hover,input[type="submit"]:hover{
 #Glowna{
   width: 100%;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 2fr;
 }
 #Glowna>*{
   padding: 2%;
 }
 #recentBuild{
   text-align: center;
+  display: flex;
+  flex-direction: row;
 }
 #recentBuild>*{
   margin:auto auto;

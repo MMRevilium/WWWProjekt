@@ -6,17 +6,45 @@
   <title>AlbionBuilder</title>
 
   <link rel="stylesheet" href="css/main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
 <?php require("scriplet/menu.php");?>
   <div id="main">
-    <div id="siteInfo">
-    
-    </div>
-  <div id="recentBuild">
+    <div id="Glowna">
+      <div id="siteInfo">
+      LogoPlaceholder
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit praesentium eveniet repellat, exercitationem commodi, veritatis quidem voluptatem blanditiis quis quibusdam cum asperiores molestias quae a reprehenderit, aliquid quasi! Tenetur consequuntur, consequatur error suscipit voluptate repudiandae ab optio asperiores saepe laborum quas neque porro voluptatem, libero ratione similique commodi assumenda, enim consectetur accusamus est adipisci quod? Quam consectetur, asperiores aut incidunt, dicta illo natus, quidem tempora quod necessitatibus tempore nostrum libero nesciunt cum blanditiis porro. Ducimus doloremque, voluptate possimus optio ipsa error voluptates, necessitatibus culpa quidem recusandae eum debitis repudiandae atque delectus! Soluta consectetur quos eveniet molestiae corrupti voluptate quod sapiente!
+      </div>
 
-  </div>
+      <div id="recentBuild">
+        Najnowszy build
+        <?php
+        $sql = "SELECT b.ID, b.Nazwa, b.Opis, b.obrazek, b.AutorID, u.Nick AS AutorNick, b.BronID, b.BronAbility1, b.BronAbility2, b.BronPassive, b.OffHandID, b.HelmID, b.HelmAbility, b.HelmPassive, b.ZbrojaID, b.ZbrojaAbility, b.ZbrojaPassive, b.ButyID, b.ButyAbility, b.ButyPassive, 
+        b.PelerynaID, b.JedzenieID, b.PotkiID, b.BagID, 
+        i1.Obrazek AS BronObrazek, i2.Obrazek AS OffHandObrazek, i3.Obrazek AS HelmObrazek, i4.Obrazek AS ZbrojaObrazek, i5.Obrazek AS ButyObrazek, i6.Obrazek AS PelerynaObrazek, i7.Obrazek AS JedzenieObrazek, i8.Obrazek AS PotkiObrazek, i9.Obrazek AS BagObrazek FROM buildy b 
+        JOIN uzytkownicy u ON b.AutorID = u.ID LEFT JOIN itemy i1 ON b.BagID = i1.ID LEFT JOIN itemy i2 ON b.HelmID = i2.ID LEFT JOIN itemy i3 ON b.PelerynaID = i3.ID LEFT JOIN itemy i4 ON b.BronID = i4.ID LEFT JOIN itemy i5 ON b.ZbrojaID = i5.ID 
+        LEFT JOIN itemy i6 ON b.OffHandID = i6.ID LEFT JOIN itemy i7 ON b.JedzenieID = i7.ID LEFT JOIN itemy i8 ON b.ButyID = i8.ID LEFT JOIN itemy i9 ON b.PotkiID = i9.ID WHERE b.ID = (SELECT max(ID) FROM buildy)";
+        $result = $conn->query($sql);
+
+        while ($row = $result->fetch_array()) {
+          echo "<div class='buildCard' style='background-image: url(img/userIMG/".$row[3].")'>";
+          echo "<input type='number' name='id' hidden value='".$row[0]."'>";
+          echo "<div class='buildInfo'>".
+          "<h3>".$row[1]."</h3> u/".$row["AutorNick"]
+          ."</div>";
+          echo "<div class='buildDisplay'>";
+          for ($i=0; $i < 9; $i++) { 
+            echo "<div><img src='img/itemy/".$row[24+$i]."'></div>";
+          }
+          echo "</div>";
+          echo "</div>";
+        }
+        ?>
+      </div>
+    </div>
   </div>
   <?php require("scriplet/footer.php");?>
 </body>
+<script src="js/main.js"></script>
 </html>

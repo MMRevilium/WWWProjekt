@@ -55,7 +55,6 @@
             <input type="file" name="obrazek" required>
         </div>
         <div>
-          <input type="button" value="Wyczysc">
           <input type="submit" value="Zapisz">
         </div>
       </div>

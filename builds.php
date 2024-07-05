@@ -11,6 +11,21 @@
 <body>
 <?php require("scriplet\menu.php")?>
   <div id="main">
+    <div class="search">
+      <form>
+      <input type="text" name="fraza" placeholder="Fraza wyszukiwania">
+      <?php
+        echo "<select name='bron'><option value=''></option>";
+        $sql = "SELECT nazwa, id FROM itemy WHERE slot=4";
+        $result = $conn->query($sql);
+        while ($row=$result->fetch_array()) {
+          echo "<option value='$row[1]'>$row[0]</option>";
+        }
+        echo "</select>";
+      ?>
+      <input type="Submit" value="Wyszukaj">
+      </form>
+    </div>
     <div id="buildGallery">
     <?php
     $sql = "SELECT b.ID, b.Nazwa, b.Opis, b.obrazek, b.AutorID, u.Nick AS AutorNick, b.BronID, b.BronAbility1, b.BronAbility2, b.BronPassive, b.OffHandID, b.HelmID, b.HelmAbility, b.HelmPassive, b.ZbrojaID, b.ZbrojaAbility, b.ZbrojaPassive, b.ButyID, b.ButyAbility, b.ButyPassive, 
@@ -26,6 +41,9 @@
       } else {
         $sql .= " WHERE b.Nazwa LIKE '%$fraza%'";
       } 
+    }
+    if(isset($_GET["bron"]) && $_GET["bron"]!=""){
+      $sql .= " AND b.BronID = $_GET[bron];";
     }
 
     $result = $conn->query($sql);

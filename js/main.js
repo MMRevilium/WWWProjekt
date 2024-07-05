@@ -90,6 +90,12 @@ $("#editButton").on("click",function(){
   let urll = "edit.php?id="+id;
   window.location=urll;
 })
+$("#deleteButton").on("click",function(){
+  let id = $(this).attr('data');
+  let obrazek = $(this).attr('data-img');
+  let urll = "fun/deleteBuild.php?id="+id+"&obrazek="+obrazek;
+  window.location=urll;
+})
 
 //LoadForEdit
 $(".buildBox>select").each(function() {

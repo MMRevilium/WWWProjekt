@@ -16,8 +16,10 @@ if (isset($_POST["login"])) {
   $sql = "SELECT * FROM uzytkownicy WHERE login='$login' AND password='" . md5($haslo) ."'";
   $result = $conn->query($sql);
   if ($result->num_rows == 1) {
-    $_SESSION["login"] = $login;
-    $_SESSION["id"] = $result->fetch_object()->ID;
+    $result=$result->fetch_object();
+    $_SESSION["login"] = $result->Nick;
+    $_SESSION["id"] = $result->ID;
+    $_SESSION["AdminStatus"] = $result->AdminStatus;
     header("Location: index.php");
   } 
   else {

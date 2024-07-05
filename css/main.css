@@ -17,8 +17,7 @@ nav{
   display:grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap:1%;
-  padding-left:5%;
-  padding-right:5%;
+  padding:1% 5%;
   box-sizing: border-box;
 }
 nav .nav-option {
@@ -38,6 +37,10 @@ nav a:link,nav a:visited{
   height:100%;
   margin:auto;
   background-color: var(--nav);
+}
+a:link,a:visited{
+  color:lightgreen;
+  text-decoration: none;
 }
 
 
@@ -173,6 +176,10 @@ nav a:link,nav a:visited{
   resize: vertical;
 }
 #BuildOptions input[type=button],#BuildOptions>input[type=submit]{
+}
+
+.search{
+  text-align: center;
 }
 
 /* usefull */

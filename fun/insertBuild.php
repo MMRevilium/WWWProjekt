@@ -27,6 +27,7 @@
   $opis=$_POST["opis"];
   if(isset($_FILES["obrazek"])){
   $obrazek = basename($_FILES["obrazek"]["name"]);
+  $obrazek = str_replace(" ","",$obrazek);
   move_uploaded_file($_FILES["obrazek"]["tmp_name"], "../img/userIMG/$obrazek");
 
 
@@ -43,6 +44,6 @@
   echo "<br>";
   $conn->query($sql);
   $conn->close();
-  header("location: ../Index.php");
+  header("location: ../builds.php");
 
 ?>

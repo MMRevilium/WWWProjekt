@@ -3,7 +3,10 @@
 <?php
   $autor = $_SESSION["id"];
   $id = $_POST['id'];
+  $text = $_POST['text'];
 
+  $sql = "INSERT INTO komentarze (ID, Text, AutorID, BuildID) VALUES (NULL, '$text', $autor, $id)"; 
+  $conn->query($sql);
   //debug
-  echo $id."|".$autor;
+  echo $sql."||".$id."|".$autor;
 ?>

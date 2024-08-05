@@ -196,9 +196,7 @@
       </div>
       <div id="CommentsBox">
         <div id="CommentsForm">
-          <textarea name="KomentarzZawartosc">
-            
-          </textarea>
+          <textarea id="KomentarzZawartosc"></textarea>
           <?php
            echo "<input type='button' value='Dodaj Komentarz' id='addComment' data='$row[0]'>";
           ?>

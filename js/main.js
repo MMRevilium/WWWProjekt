@@ -96,6 +96,17 @@ $("#deleteButton").on("click",function(){
   let urll = "fun/deleteBuild.php?id="+id+"&obrazek="+obrazek;
   window.location=urll;
 })
+//Replace
+$("#addComment").on("click",function(){
+  $.post("fun/addComment.php", {id: +$(this).attr('data')}, function(data){
+    if (data) {
+      $("#CommentsDisplay").text(data);
+    }
+  })
+  // let id=$(this).attr('data');
+  // let urll = "fun/addComment.php?id="+id;
+  // window.location = urll;
+})
 
 //LoadForEdit
 $(".buildBox>select").each(function() {

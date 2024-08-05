@@ -290,3 +290,9 @@ input[type="button"]:hover,input[type="submit"]:hover{
   padding:2%;
   text-align: center;
 }
+
+#CommentsBox{
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+}

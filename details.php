@@ -194,8 +194,18 @@
           ?>
         </div>
       </div>
+      <div id="CommentsBox">
+        <div id="CommentsForm">
+          <textarea name="KomentarzZawartosc">
+            
+          </textarea>
+          <?php
+           echo "<input type='button' value='Dodaj Komentarz' id='addComment' data='$row[0]'>";
+          ?>
+        </div>
+        <div id="CommentsDisplay">
+        </div>
       </div>
-  </div>
   <?php require("scriplet/footer.php");?>
 </body>
 <script src="js/main.js"></script>

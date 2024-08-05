@@ -96,7 +96,7 @@ $("#deleteButton").on("click",function(){
   let urll = "fun/deleteBuild.php?id="+id+"&obrazek="+obrazek;
   window.location=urll;
 })
-//Replace
+//ReplaceTHIS
 $("#addComment").on("click",function(){
   $.post("fun/addComment.php", {id: $(this).attr('data'), text: $("#KomentarzZawartosc").val()}, function(data){
     if (data) {

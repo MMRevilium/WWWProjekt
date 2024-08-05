@@ -202,6 +202,13 @@
           ?>
         </div>
         <div id="CommentsDisplay">
+          <?php
+          $sql = "SELECT * FROM komentarze";
+          $result = $conn->query($sql);
+          while($row = $result->fetch_row()){
+            echo "$row[0],$row[1],$row[2],$row[3]<br>";
+          }
+          ?>
         </div>
       </div>
   <?php require("scriplet/footer.php");?>

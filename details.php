@@ -182,11 +182,12 @@
       <div id="BuildOptions">
         <div>
           <?php
-          echo "<div class='center font200'>$row[1]</div> <sub class='center'><a href='builds.php?fraza=u/$row[5]'>by $row[5]</a></sub> <div>Opis: $row[2]</div>";
+          echo "<div class='center font200'>$row[1]</div> <sub class='center'><a href='builds.php?fraza=u/$row[5]'>by $row[5]</a></sub> <div id='Description'>$row[2]</div>";
           ?>
         </div>
         <div>
           <?php
+            echo "<input type='button' value='Like' id='likeButton' data='$row[0]'>";
             if($_SESSION['id']==$row[4] || $_SESSION['AdminStatus']==1){
               echo "<input type='button' value='Edytuj' id='editButton' data='$row[0]'>";
               echo "<input type='button' value='Usun' id='deleteButton' data='$row[0]' data-img='$row[3]'>";
@@ -194,23 +195,26 @@
           ?>
         </div>
       </div>
-      <div id="CommentsBox">
-        <div id="CommentsForm">
-          <textarea id="KomentarzZawartosc"></textarea>
-          <?php
-           echo "<input type='button' value='Dodaj Komentarz' id='addComment' data='$row[0]'>";
-          ?>
-        </div>
-        <div id="CommentsDisplay">
-          <?php
-          $sql = "SELECT * FROM komentarze";
-          $result = $conn->query($sql);
-          while($row = $result->fetch_row()){
-            echo "$row[0],$row[1],$row[2],$row[3]<br>";
-          }
-          ?>
-        </div>
-      </div>
+      <div id="Bottom">
+        <div id="CommentsBox">
+          <div id="CommentsForm">
+            <textarea id="KomentarzZawartosc"></textarea>
+            <?php
+            echo "<input type='button' value='Dodaj Komentarz' id='addComment' data='$row[0]'>";
+            ?>
+          </div>
+          <div id="CommentsDisplay">
+            <?php
+            $sql = "SELECT uzytkownicy.Nick,Text  FROM `komentarze` JOIN uzytkownicy WHERE uzytkownicy.ID = AutorID";
+            $result = $conn->query($sql);
+            while($row = $result->fetch_row()){
+              echo "<p>u/$row[0]<br>$row[1]</p>";
+            }
+            ?>
+          </div>
+        </div> 
+      </div>     
+    </div>
   <?php require("scriplet/footer.php");?>
 </body>
 <script src="js/main.js"></script>

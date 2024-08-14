@@ -187,3 +187,9 @@ $(".buildCard").hover(function(){
   $(this).css("transform","scale(1)");
   $(this).css("z-index","1");
 });
+
+$("#likeButton").on("click",function(){
+  let userID = $(this).attr('data');
+  //console.log(userID);
+  
+})

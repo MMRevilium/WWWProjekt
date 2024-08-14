@@ -296,3 +296,27 @@ input[type="button"]:hover,input[type="submit"]:hover{
   display:flex;
   flex-direction: column;
 }
+
+#Description {
+  max-height: 30ch;
+  overflow:auto;
+}
+#Bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#CommentsForm > textarea {
+  width:100%;
+  resize: vertical;
+  height: 9ch;
+}
+#CommentsForm{
+  text-align: center;
+}
+
+#CommentsDisplay > p {
+  padding:1ch;
+  height: min-content;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+

@@ -7,5 +7,5 @@
   $sql = "INSERT INTO polubienia (UserID, BuildID) VALUES ($user, $id)"; 
   $conn->query($sql);
   //debug
-  echo $sql."||".$user."|".$id;
+  echo "success";
 ?>

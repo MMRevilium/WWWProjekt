@@ -187,6 +187,12 @@
         </div>
         <div>
           <?php
+          $sql = "SELECT COUNT(ID) FROM polubienia WHERE BuildID = $id";
+          $numLikes = $conn->query($sql)->fetch_row()[0];
+          $sql = "SELECT COUNT(ID) FROM polubienia WHERE BuildID = $id AND Dislike = 1";
+          $numLikes = $numLikes - ($conn->query($sql)->fetch_row()[0]);
+
+          echo $numLikes;
             echo "<input type='button' value='Like' id='likeButton' data='$row[0]'>";
             if($_SESSION['id']==$row[4] || $_SESSION['AdminStatus']==1){
               echo "<input type='button' value='Edytuj' id='editButton' data='$row[0]'>";

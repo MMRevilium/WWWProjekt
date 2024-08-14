@@ -189,7 +189,8 @@ $(".buildCard").hover(function(){
 });
 
 $("#likeButton").on("click",function(){
-  let userID = $(this).attr('data');
+  let buildID = $(this).attr('data');
   //console.log(userID);
-  
-})
+  $.post("fun/addLike.php", {buildID: buildID}, function(data) {
+  console.log(data);
+})})

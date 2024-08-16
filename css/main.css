@@ -318,5 +318,6 @@ input[type="button"]:hover,input[type="submit"]:hover{
   padding:1ch;
   height: min-content;
   background-color: rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid rgba(0,0,0,.5);
 }
 

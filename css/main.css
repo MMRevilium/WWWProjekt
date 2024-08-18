@@ -321,3 +321,12 @@ input[type="button"]:hover,input[type="submit"]:hover{
   border-bottom: 2px solid rgba(0,0,0,.5);
 }
 
+.likes{
+  width: 1.7ch;
+  height: 1.7ch;
+}
+
+#likes {
+  text-align: center;
+  font-size: 3ch;
+}

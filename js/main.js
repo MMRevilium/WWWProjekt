@@ -192,7 +192,6 @@ $("#plusIcon").on("click",function(){
   let buildID = $(this).attr('data');
   //console.log(userID);
   $.post("fun/addLike.php", {buildID: buildID, minus: 0}, function(data) {
-    console.log(data);
   if(data="success") {
     $("#plusIcon").attr("src","img/PlusMarked.png");
     $("#minusIcon").attr("src","img/Minus.png");
@@ -205,7 +204,6 @@ $("#minusIcon").on("click",function(){
   let buildID = $(this).attr('data');
   //console.log(userID);
   $.post("fun/addLike.php", {buildID: buildID, minus: 1}, function(data) {
-    console.log(data);
     if(data="success") {
       $("#minusIcon").attr("src","img/MinusMarked.png");
       $("#plusIcon").attr("src","img/Plus.png");
@@ -217,6 +215,5 @@ $("#minusIcon").on("click",function(){
 function likesUpdate(buildID){
   $.post("fun/getLikes.php", {buildID: buildID}, function(data) {
     $("#likesText").text(" "+data+" ");
-    console.log(data);
   }
 )}

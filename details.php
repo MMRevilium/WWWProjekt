@@ -188,14 +188,24 @@
         <div>
           <div id="likes">
           <?php
-          echo "<img src='img/Minus.png' class='likes' id='minusIcon' data='$row[0]'>";
+          $sql = "SELECT Dislike FROM polubienia WHERE buildID=$id AND userID=$_SESSION[id]";
+          $status = $conn->query($sql)->fetch_row()[0];
+          if($status!=NULL && $status==1){
+            echo "<img src='img/MinusMarked.png' class='likes' id='minusIcon' data='$row[0]'>";
+          } else {
+            echo "<img src='img/Minus.png' class='likes' id='minusIcon' data='$row[0]'>";
+          }
           $sql = "SELECT COUNT(ID) FROM polubienia WHERE BuildID = $id AND Dislike = 0";
           $numLikes = $conn->query($sql)->fetch_row()[0];
           $sql = "SELECT COUNT(ID) FROM polubienia WHERE BuildID = $id AND Dislike = 1";
           $numLikes = $numLikes - ($conn->query($sql)->fetch_row()[0]);
 
-          echo " ".$numLikes." ";
-          echo "<img src='img/Plus.png' class='likes' id='plusIcon' data='$row[0]'></div>";
+          echo "<a id='likesText'> ".$numLikes." </a>";
+          if($status!=NULL && $status==0){
+            echo "<img src='img/PlusMarked.png' class='likes' id='plusIcon' data='$row[0]'></div>";
+          } else {
+            echo "<img src='img/Plus.png' class='likes' id='plusIcon' data='$row[0]'></div>";
+          }
             if($_SESSION['id']==$row[4] || $_SESSION['AdminStatus']==1){
               echo "<input type='button' value='Edytuj' id='editButton' data='$row[0]'>";
               echo "<input type='button' value='Usun' id='deleteButton' data='$row[0]' data-img='$row[3]'>";

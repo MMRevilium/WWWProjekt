@@ -194,9 +194,10 @@ $("#plusIcon").on("click",function(){
   $.post("fun/addLike.php", {buildID: buildID, minus: 0}, function(data) {
     console.log(data);
   if(data="success") {
-    $("s#plusIcon").attr("src","img/PlusMarked.png");
+    $("#plusIcon").attr("src","img/PlusMarked.png");
     $("#minusIcon").attr("src","img/Minus.png");
   }
+  likesUpdate(buildID);
   })
 
 })
@@ -209,5 +210,13 @@ $("#minusIcon").on("click",function(){
       $("#minusIcon").attr("src","img/MinusMarked.png");
       $("#plusIcon").attr("src","img/Plus.png");
     }
+    likesUpdate(buildID);
   })
 })
+
+function likesUpdate(buildID){
+  $.post("fun/getLikes.php", {buildID: buildID}, function(data) {
+    $("#likesText").text(" "+data+" ");
+    console.log(data);
+  }
+)}

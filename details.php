@@ -187,16 +187,15 @@
         </div>
         <div>
           <div id="likes">
-          <img src="img/MinusMarked.png" class="likes">
           <?php
-          $sql = "SELECT COUNT(ID) FROM polubienia WHERE BuildID = $id";
+          echo "<img src='img/Minus.png' class='likes' id='minusIcon' data='$row[0]'>";
+          $sql = "SELECT COUNT(ID) FROM polubienia WHERE BuildID = $id AND Dislike = 0";
           $numLikes = $conn->query($sql)->fetch_row()[0];
           $sql = "SELECT COUNT(ID) FROM polubienia WHERE BuildID = $id AND Dislike = 1";
           $numLikes = $numLikes - ($conn->query($sql)->fetch_row()[0]);
 
-          echo $numLikes." ";
-          echo "<img src='img/PlusMarked.png' class='likes'></div>";
-          echo "<input type='button' value='Like' id='likeButton' data='$row[0]'>";
+          echo " ".$numLikes." ";
+          echo "<img src='img/Plus.png' class='likes' id='plusIcon' data='$row[0]'></div>";
             if($_SESSION['id']==$row[4] || $_SESSION['AdminStatus']==1){
               echo "<input type='button' value='Edytuj' id='editButton' data='$row[0]'>";
               echo "<input type='button' value='Usun' id='deleteButton' data='$row[0]' data-img='$row[3]'>";

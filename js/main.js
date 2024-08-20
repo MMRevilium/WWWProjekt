@@ -188,9 +188,26 @@ $(".buildCard").hover(function(){
   $(this).css("z-index","1");
 });
 
-$("#likeButton").on("click",function(){
+$("#plusIcon").on("click",function(){
   let buildID = $(this).attr('data');
   //console.log(userID);
-  $.post("fun/addLike.php", {buildID: buildID}, function(data) {
-  console.log(data);
-})})
+  $.post("fun/addLike.php", {buildID: buildID, minus: 0}, function(data) {
+    console.log(data);
+  if(data="success") {
+    $("s#plusIcon").attr("src","img/PlusMarked.png");
+    $("#minusIcon").attr("src","img/Minus.png");
+  }
+  })
+
+})
+$("#minusIcon").on("click",function(){
+  let buildID = $(this).attr('data');
+  //console.log(userID);
+  $.post("fun/addLike.php", {buildID: buildID, minus: 1}, function(data) {
+    console.log(data);
+    if(data="success") {
+      $("#minusIcon").attr("src","img/MinusMarked.png");
+      $("#plusIcon").attr("src","img/Plus.png");
+    }
+  })
+})

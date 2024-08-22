@@ -206,9 +206,13 @@
           } else {
             echo "<img src='img/Plus.png' class='likes' id='plusIcon' data='$row[0]'></div>";
           }
-            if($_SESSION['id']==$row[4] || $_SESSION['AdminStatus']==1){
+            if($_SESSION['id']==$row[4]){
               echo "<input type='button' value='Edytuj' id='editButton' data='$row[0]'>";
               echo "<input type='button' value='Usun' id='deleteButton' data='$row[0]' data-img='$row[3]'>";
+            }
+            if($_SESSION['AdminStatus']==1) {
+              echo "<input type='button' value='Schowaj post i napisz ostrzeżenie' id='hideButton'>";
+              echo "<input type='button' value='Zbanuj użytkownika' id='banButton'>";
             }
           ?>
         </div>

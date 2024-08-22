@@ -335,3 +335,33 @@ input[type="button"]:hover,input[type="submit"]:hover{
   display: inline-block;
   width: 4ch;
 }
+
+
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-content {
+  display: none;
+  position: absolute;
+  top: 100%; /* Możesz dostosować pozycję tooltipa */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 2px;
+  border-radius: 20px;
+  z-index: 1000;
+  border: 1px solid rgb(103,73,103);
+}
+.tooltip-content > img {
+  width:8ch;
+  height: 8ch;
+}
+
+.tooltip-container:hover .tooltip-content,
+.tooltip-content:hover {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}

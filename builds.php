@@ -15,13 +15,28 @@
       <form>
       <input type="text" name="fraza" placeholder="Fraza wyszukiwania">
       <?php
-        echo "<select name='bron'><option value=''></option>";
-        $sql = "SELECT nazwa, id FROM itemy WHERE slot=4";
-        $result = $conn->query($sql);
-        while ($row=$result->fetch_array()) {
-          echo "<option value='$row[1]'>$row[0]</option>";
+        for ($i=1; $i < 10; $i++) { 
+          echo "<div class='tooltip-container'>Slot $i<div class='tooltip-content'>";
+              $sql = "SELECT id, obrazek FROM itemy WHERE slot=$i";
+              $result = $conn->query($sql);
+              while ($row=$result->fetch_array()) {
+                echo "<img src='img/itemy/$row[1]' data='$row[0]'>";
+              }
+              echo "</div></div>";
         }
-        echo "</select>";
+        
+        
+        
+        
+        
+        
+        // echo "<select name='bron'><option value=''></option>";
+        // $sql = "SELECT nazwa, id, obrazek FROM itemy WHERE slot=4";
+        // $result = $conn->query($sql);
+        // while ($row=$result->fetch_array()) {
+        //   echo "<option value='$row[1]'>$row[0]</option>";
+        // }
+        // echo "</select>";
       ?>
       <input type="Submit" value="Wyszukaj">
       </form>

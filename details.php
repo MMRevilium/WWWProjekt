@@ -189,9 +189,14 @@
           <div id="likes">
           <?php
           $sql = "SELECT Dislike FROM polubienia WHERE buildID=$id AND userID=$_SESSION[id]";
-          $status = $conn->query($sql)->fetch_row()[0];
-          if($status!=NULL && $status==1){
-            echo "<img src='img/MinusMarked.png' class='likes' id='minusIcon' data='$row[0]'>";
+          $result = $conn->query($sql);
+          if (mysqli_num_rows($result) > 0) {
+            $status = $result->fetch_row()[0];
+            if($status==1){
+              echo "<img src='img/MinusMarked.png' class='likes' id='minusIcon' data='$row[0]'>";
+            } else {
+              echo "<img src='img/Minus.png' class='likes' id='minusIcon' data='$row[0]'>";
+            }
           } else {
             echo "<img src='img/Minus.png' class='likes' id='minusIcon' data='$row[0]'>";
           }
@@ -201,8 +206,12 @@
           $numLikes = $numLikes - ($conn->query($sql)->fetch_row()[0]);
 
           echo "<a id='likesText'> ".$numLikes." </a>";
-          if($status!=NULL && $status==0){
-            echo "<img src='img/PlusMarked.png' class='likes' id='plusIcon' data='$row[0]'></div>";
+          if (mysqli_num_rows($result) > 0) {
+            if($status==0){
+              echo "<img src='img/PlusMarked.png' class='likes' id='plusIcon' data='$row[0]'></div>";
+            } else {
+              echo "<img src='img/Plus.png' class='likes' id='plusIcon' data='$row[0]'></div>";
+            }
           } else {
             echo "<img src='img/Plus.png' class='likes' id='plusIcon' data='$row[0]'></div>";
           }

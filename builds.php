@@ -15,8 +15,9 @@
       <form>
       <input type="text" name="fraza" placeholder="Fraza wyszukiwania">
       <?php
-        for ($i=1; $i < 10; $i++) { 
-          echo "<div class='tooltip-container'>Slot $i<div class='tooltip-content'>";
+        $order = array(4,6,2,5,8,1,3,7,9);
+        foreach ($order as $i) { 
+          echo "<div class='tooltip-container'><input type='number' name='slot$i'><div class='tooltip-content'>";
               $sql = "SELECT id, obrazek FROM itemy WHERE slot=$i";
               $result = $conn->query($sql);
               while ($row=$result->fetch_array()) {
@@ -26,10 +27,6 @@
         }
         
         
-        
-        
-        
-        
         // echo "<select name='bron'><option value=''></option>";
         // $sql = "SELECT nazwa, id, obrazek FROM itemy WHERE slot=4";
         // $result = $conn->query($sql);
@@ -37,7 +34,7 @@
         //   echo "<option value='$row[1]'>$row[0]</option>";
         // }
         // echo "</select>";
-      ?>
+      ?><br>
       <input type="Submit" value="Wyszukaj">
       </form>
     </div>
@@ -47,19 +44,53 @@
     b.PelerynaID, b.JedzenieID, b.PotkiID, b.BagID, 
     i1.Obrazek AS BronObrazek, i2.Obrazek AS OffHandObrazek, i3.Obrazek AS HelmObrazek, i4.Obrazek AS ZbrojaObrazek, i5.Obrazek AS ButyObrazek, i6.Obrazek AS PelerynaObrazek, i7.Obrazek AS JedzenieObrazek, i8.Obrazek AS PotkiObrazek, i9.Obrazek AS BagObrazek FROM buildy b 
     JOIN uzytkownicy u ON b.AutorID = u.ID LEFT JOIN itemy i1 ON b.BagID = i1.ID LEFT JOIN itemy i2 ON b.HelmID = i2.ID LEFT JOIN itemy i3 ON b.PelerynaID = i3.ID LEFT JOIN itemy i4 ON b.BronID = i4.ID LEFT JOIN itemy i5 ON b.ZbrojaID = i5.ID 
-    LEFT JOIN itemy i6 ON b.OffHandID = i6.ID LEFT JOIN itemy i7 ON b.JedzenieID = i7.ID LEFT JOIN itemy i8 ON b.ButyID = i8.ID LEFT JOIN itemy i9 ON b.PotkiID = i9.ID";
+    LEFT JOIN itemy i6 ON b.OffHandID = i6.ID LEFT JOIN itemy i7 ON b.JedzenieID = i7.ID LEFT JOIN itemy i8 ON b.ButyID = i8.ID LEFT JOIN itemy i9 ON b.PotkiID = i9.ID WHERE 1=1";
+    $ADDFlag = false;
     if(isset($_GET["fraza"])){
       $fraza=$_GET["fraza"];
       if(substr($fraza,0,2)=="u/"){
         $nick=substr($fraza,2);
-        $sql .= " WHERE u.Nick = '$nick'";
+        $sql .= " AND u.Nick = '$nick'";
       } else {
-        $sql .= " WHERE b.Nazwa LIKE '%$fraza%'";
+        $sql .= " AND b.Nazwa LIKE '%$fraza%'";
       } 
     }
-    if(isset($_GET["bron"]) && $_GET["bron"]!=""){
-      $sql .= " AND b.BronID = $_GET[bron];";
-    }
+    if(isset($_GET["slot1"]) && $_GET["slot1"] != ""){
+      $sql .= " AND b.BronID = $_GET[slot1]";
+  }
+  
+  if(isset($_GET["slot2"]) && $_GET["slot2"] != ""){
+      $sql .= " AND b.BronID = $_GET[slot2]";
+  }
+  
+  if(isset($_GET["slot3"]) && $_GET["slot3"] != ""){
+      $sql .= " AND b.BronID = $_GET[slot3]";
+  }
+  
+  if(isset($_GET["slot4"]) && $_GET["slot4"] != ""){
+      $sql .= " AND b.BronID = $_GET[slot4]";
+  }
+  
+  if(isset($_GET["slot5"]) && $_GET["slot5"] != ""){
+      $sql .= " AND b.BronID = $_GET[slot5]";
+  }
+  
+  if(isset($_GET["slot6"]) && $_GET["slot6"] != ""){
+      $sql .= " AND b.BronID = $_GET[slot6]";
+  }
+  
+  if(isset($_GET["slot7"]) && $_GET["slot7"] != ""){
+      $sql .= " AND b.BronID = $_GET[slot7]";
+  }
+  
+  if(isset($_GET["slot8"]) && $_GET["slot8"] != ""){
+      $sql .= " AND b.BronID = $_GET[slot8]";
+  }
+  
+  if(isset($_GET["slot9"]) && $_GET["slot9"] != ""){
+      $sql .= " AND b.BronID = $_GET[slot9]";
+  }
+    
 
     $result = $conn->query($sql);
 

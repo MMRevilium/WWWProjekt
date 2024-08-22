@@ -212,6 +212,16 @@ $("#minusIcon").on("click",function(){
   })
 })
 
+$(".tooltip-content").on("click","img",function(){
+  let selectedItem = $(this).attr("data");
+  let image = $(this).attr("src");
+  $(this).parent().prev().val(selectedItem);
+  $(this).parent().prev().css("background-image", "url("+image+")");
+  $(this).parent().prev().css("background-size","10ch");
+  $(this).parent().prev().css("background-position","-1ch -1ch");
+  console.log(image);
+})
+
 function likesUpdate(buildID){
   $.post("fun/getLikes.php", {buildID: buildID}, function(data) {
     $("#likesText").text(" "+data+" ");

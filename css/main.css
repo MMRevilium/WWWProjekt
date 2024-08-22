@@ -359,6 +359,13 @@ input[type="button"]:hover,input[type="submit"]:hover{
   width:8ch;
   height: 8ch;
 }
+.tooltip-container > input {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  width: 8ch;
+  height: 8ch;
+  color: rgba(0,0,0,0);
+}
 
 .tooltip-container:hover .tooltip-content,
 .tooltip-content:hover {

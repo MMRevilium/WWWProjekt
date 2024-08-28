@@ -228,3 +228,27 @@ function likesUpdate(buildID){
   }
 )}
 
+$("#hideButton").on("click",function addText(){
+  $(this).attr("value","Potwierdź");
+  $(this).css("background-color","rgb(50,80,50)");
+  $(this).css("border-color","rgb(60,90,60)");
+
+  $(this).hover(function(){
+    $(this).css("background-color","rgb(80,110,80)");
+  },function(){
+    $(this).css("background-color","rgb(50,80,50)");
+  });
+
+  $(this).off("click",addText);
+
+  $(this).parent().append("<textarea id='warn' name='warn'></textarea>");
+  $(this).on("click",function(){
+    let tekst = $("#warn").val();
+    $("#warn").val("");
+    let buildID = $(this).attr('data');
+    let authorID = $(this).attr('data2');
+    $.post("fun/addNotif.php", {text: tekst, buildID: buildID, authorID: authorID}, function(data){
+      if(data=="success") {$(this).attr("value","Wysłano")};
+    })
+  })
+})

@@ -221,7 +221,7 @@
             }
             if($_SESSION['AdminStatus']==1) {
               echo "<input type='button' value='Schowaj post i napisz ostrzeżenie' id='hideButton' data='$row[0]' data2='$row[33]'>";
-              echo "<input type='button' value='Zbanuj użytkownika' id='banButton'>";
+              echo "<input type='button' value='Zbanuj użytkownika' id='banButton' data='$row[33]'>";
             }
           ?>
         </div>

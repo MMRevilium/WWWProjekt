@@ -266,3 +266,13 @@ $(".notif-single").on("click","div>input",function(){
     }
   })
 })
+
+$("#banButton").on("click",function(){
+  let id = $(this).attr('data');
+  $.post("fun/banUser.php",{id: id},function(data){
+    if(data=="success"){
+      $(this).attr("value","Zbanowano");  
+    }
+    console.log(data);
+  })
+})

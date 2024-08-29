@@ -252,3 +252,17 @@ $("#hideButton").on("click",function addText(){
     })
   })
 })
+
+$(".notif-single").on("click","div>input",function(){
+  let id = $(this).attr('data');
+  $(this).parent().parent().remove();
+  $("#num").attr("data",Number($("#num").attr("data")-1));
+  if(Number($("#num").attr("data")==0)){
+    $("#notif").html("Brak<br>powiadomień");
+  }
+  $.post("fun/deleteNotif.php",{id: id}, function(data){
+    if(data=='success'){
+      $(this).remove();
+    }
+  })
+})

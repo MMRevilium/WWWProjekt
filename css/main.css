@@ -20,11 +20,20 @@ nav{
   height:min-content;
   background-color: var(--color1);
   display:grid;
-  grid-template-columns: 2fr 2fr 2fr 2fr 1fr;
+  grid-template-columns: 4fr 4fr 4fr 4fr 1fr;
   gap:1%;
   padding:1% 5%;
   box-sizing: border-box;
 }
+
+#num{
+  height: 100%;
+  display:flex;
+  flex-direction: column;
+  padding:1ch;
+  margin:auto;
+}
+
 nav .nav-option {
   text-align: center;
   background-color: var(--button);
@@ -267,6 +276,9 @@ input[type="button"]:hover,input[type="submit"]:hover{
 .font200{
   font-size: 200%;
 }
+.verticalMid {
+  vertical-align: middle;
+}
 
 @keyframes whiteshadow {
   0%{
@@ -371,4 +383,29 @@ input[type="button"]:hover,input[type="submit"]:hover{
 .tooltip-content:hover {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+#notif {
+ overflow: visible;
+}
+
+#notif-content {
+  max-height: 30ch;
+  grid-template-columns: 1fr;
+  flex-direction: column;
+  overflow-y: scroll;
+  
+}
+
+.notif-single {
+  margin:.5ch;
+  padding: 1ch;
+  border-radius:1.6ch;
+  border: solid rgba(255,255,255,0.3) 2px;
+  background-color: rgba(255,255,255,.1);
+}
+.notif-tresc{
+  text-align: center;
+  white-space: normal;
+  color: rgb(185, 70, 70);
 }

@@ -17,7 +17,7 @@
       <?php
         $order = array(4,6,2,5,8,1,3,7,9);
         foreach ($order as $i) { 
-          echo "<div class='tooltip-container'><input type='number' name='slot$i'><div class='tooltip-content'>";
+          echo "<div class='tooltip-container itemQuery'><input type='number' name='slot$i'><div class='tooltip-content itemQuery-content'>";
               $sql = "SELECT id, obrazek FROM itemy WHERE slot=$i";
               $result = $conn->query($sql);
               while ($row=$result->fetch_array()) {

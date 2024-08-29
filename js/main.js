@@ -212,7 +212,7 @@ $("#minusIcon").on("click",function(){
   })
 })
 
-$(".tooltip-content").on("click","img",function(){
+$(".itemQuery-content").on("click","img",function(){
   let selectedItem = $(this).attr("data");
   let image = $(this).attr("src");
   $(this).parent().prev().val(selectedItem);

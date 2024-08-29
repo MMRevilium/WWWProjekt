@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2024 at 04:08 PM
--- Wersja serwera: 10.4.32-MariaDB
--- Wersja PHP: 8.2.12
+-- Czas generowania: 29 Sie 2024, 19:44
+-- Wersja serwera: 10.4.25-MariaDB
+-- Wersja PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `wwwprojekt`
+-- Baza danych: `wwwprojekt`
 --
 
 -- --------------------------------------------------------
@@ -50,24 +50,25 @@ CREATE TABLE `buildy` (
   `PelerynaID` int(11) NOT NULL,
   `JedzenieID` int(11) NOT NULL,
   `PotkiID` int(11) NOT NULL,
-  `BagID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `BagID` int(11) NOT NULL,
+  `Schowaj` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `buildy`
+-- Zrzut danych tabeli `buildy`
 --
 
-INSERT INTO `buildy` (`ID`, `Nazwa`, `Opis`, `obrazek`, `AutorID`, `BronID`, `BronAbility1`, `BronAbility2`, `BronPassive`, `OffHandID`, `HelmID`, `HelmAbility`, `HelmPassive`, `ZbrojaID`, `ZbrojaAbility`, `ZbrojaPassive`, `ButyID`, `ButyAbility`, `ButyPassive`, `PelerynaID`, `JedzenieID`, `PotkiID`, `BagID`) VALUES
-(14, 'TestBuild', 'Testowy build postaci', 'Autograf.png', 2, 98, 1, 2, 1, 83, 2, 1, 0, 30, 2, 2, 55, 0, 1, 107, 109, 111, 142),
-(15, 'TestBuild', 'Testowy build postaci', '', 2, 98, 1, 2, 1, 83, 2, 1, 0, 30, 2, 2, 55, 0, 1, 107, 109, 111, 142),
-(16, 'TestBuild', 'Testowy build postaci', '', 2, 98, 1, 2, 1, 83, 2, 1, 0, 30, 2, 2, 55, 0, 1, 107, 109, 111, 142),
-(21, 'TestBuild', 'Testowy build postaci', '', 2, 98, 0, 2, 0, 83, 2, 1, 2, 30, 2, 2, 55, 1, 2, 107, 109, 111, 142),
-(22, 'TestBuild', 'Testowy build postaci', 'Autograf1.png', 2, 98, 1, 2, 1, 83, 2, 1, 0, 30, 2, 2, 55, 0, 1, 107, 109, 111, 142),
-(23, 'TestBuild', 'Testowy build postaci', 'Autograf2.png', 2, 98, 1, 2, 1, 83, 2, 1, 0, 30, 2, 2, 55, 0, 1, 107, 109, 111, 142),
-(24, 'TestBuild', 'Testowy build postaci', 'Autograf.png', 2, 98, 1, 2, 1, 83, 2, 1, 0, 30, 2, 2, 55, 0, 1, 107, 109, 111, 142),
-(25, 'TestBuild', 'Testowy build postaci', 'Autograf.png', 2, 98, 0, 2, 0, 83, 2, 1, 2, 30, 2, 2, 55, 1, 2, 107, 109, 111, 142),
-(26, 'HolyHelm', 'Testowy build postaci, ale inny', 'Pp.png', 2, 98, 0, 0, 0, 83, 1, 0, 0, 28, 2, 2, 55, 1, 2, 107, 109, 111, 142),
-(27, 'Fiend', '\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus molestie id dui in malesuada. Donec consequat accumsan ante, in pellentesque erat lobortis eget. Etiam libero dui, pellentesque eu velit in, imperdiet bibendum diam. Aenean nec bibendum sapien. Praesent in neque odio. Aliquam scelerisque turpis nec ante varius, vel gravida arcu pulvinar. Aliquam porta neque quis tortor mollis, varius vulputate magna pretium. Quisque egestas sagittis aliquam. Curabitur mauris ipsum, congue ac lacinia eu, commodo in turpis.\r\n\r\nSed sit amet lobortis est. Ut vel magna tortor. Mauris aliquet nisi id porta facilisis. Nunc aliquet dapibus metus. Ut a tellus nec nibh varius semper. Nullam fermentum scelerisque lorem eget dapibus. Fusce interdum cursus dui sit amet interdum. Curabitur aliquam, orci non vestibulum finibus, metus diam fermentum est, scelerisque lobortis mi mauris volutpat nibh. Mauris at sagittis eros, vestibulum interdum nibh.\r\n\r\nNunc lacinia tincidunt lorem nec ultrices. Cras ornare lacus ex, vitae sodales enim tincidunt non. Mauris fringilla pretium leo. Phasellus mattis libero ac odio hendrerit efficitur. Pellentesque eget faucibus tortor, et pretium quam. Pellentesque maximus, felis eget ornare tempus, augue nunc bibendum sapien, luctus posuere nisi velit eu mauris. Sed luctus et turpis eget consequat. Etiam sed libero condimentum, porttitor risus sit amet, dignissim eros. Sed tincidunt metus non ultrices iaculis. Fusce faucibus suscipit est, eu tristique tellus fermentum sed.\r\n\r\nAliquam nec nulla commodo, pellentesque magna ut, accumsan eros. Nam nulla nisi, iaculis eu lacinia vel, tincidunt id enim. Duis dignissim luctus diam, vel eleifend eros congue in. Cras non magna pulvinar, imperdiet enim eu, tincidunt nisl. Sed rhoncus nisi sed molestie congue. Vivamus id diam consectetur tellus iaculis mollis vel sagittis enim. Praesent porttitor tincidunt arcu, in accumsan turpis. Fusce maximus lacinia efficitur. Integer nec viverra nunc. Praesent ut sapien odio. Pellentesque varius congue dui non laoreet. Curabitur semper feugiat tortor, in cursus leo efficitur sit amet. Ut non tortor ex. Donec blandit arcu quis justo congue, efficitur ultrices ligula sollicitudin.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam lacinia lacinia ex eget fringilla. Integer tortor justo, dignissim eu velit eget, congue bibendum ex. Donec eu ligula dui. In hac habitasse platea dictumst. Aliquam erat volutpat. Praesent mattis non ante sed maximus. Quisque dignissim leo leo.\r\n\r\nMorbi pellentesque libero at est vulputate lobortis ut vitae justo. Vivamus aliquam tempus orci, non rhoncus sapien fermentum id. Quisque commodo venenatis. ', 'Zdjęcie2.png', 1, 143, 0, 2, 0, 94, 3, 2, 1, 30, 2, 0, 57, 2, 2, 107, 109, 111, 142);
+INSERT INTO `buildy` (`ID`, `Nazwa`, `Opis`, `obrazek`, `AutorID`, `BronID`, `BronAbility1`, `BronAbility2`, `BronPassive`, `OffHandID`, `HelmID`, `HelmAbility`, `HelmPassive`, `ZbrojaID`, `ZbrojaAbility`, `ZbrojaPassive`, `ButyID`, `ButyAbility`, `ButyPassive`, `PelerynaID`, `JedzenieID`, `PotkiID`, `BagID`, `Schowaj`) VALUES
+(14, 'TestBuild', 'Testowy build postaci', 'Autograf.png', 2, 98, 1, 2, 1, 83, 2, 1, 0, 30, 2, 2, 55, 0, 1, 107, 109, 111, 142, 0),
+(15, 'TestBuild', 'Testowy build postaci', '', 2, 98, 1, 2, 1, 83, 2, 1, 0, 30, 2, 2, 55, 0, 1, 107, 109, 111, 142, 0),
+(16, 'TestBuild', 'Testowy build postaci', '', 2, 98, 1, 2, 1, 83, 2, 1, 0, 30, 2, 2, 55, 0, 1, 107, 109, 111, 142, 0),
+(21, 'TestBuild', 'Testowy build postaci', '', 2, 98, 0, 2, 0, 83, 2, 1, 2, 30, 2, 2, 55, 1, 2, 107, 109, 111, 142, 0),
+(22, 'TestBuild', 'Testowy build postaci', 'Autograf1.png', 2, 98, 1, 2, 1, 83, 2, 1, 0, 30, 2, 2, 55, 0, 1, 107, 109, 111, 142, 0),
+(23, 'TestBuild', 'Testowy build postaci', 'Autograf2.png', 2, 98, 1, 2, 1, 83, 2, 1, 0, 30, 2, 2, 55, 0, 1, 107, 109, 111, 142, 0),
+(24, 'TestBuild', 'Testowy build postaci', 'Autograf.png', 2, 98, 1, 2, 1, 83, 2, 1, 0, 30, 2, 2, 55, 0, 1, 107, 109, 111, 142, 0),
+(25, 'TestBuild', 'Testowy build postaci', 'Autograf.png', 2, 98, 0, 2, 0, 83, 2, 1, 2, 30, 2, 2, 55, 1, 2, 107, 109, 111, 142, 0),
+(26, 'HolyHelm', 'Testowy build postaci, ale inny', 'Pp.png', 2, 98, 0, 0, 0, 83, 1, 0, 0, 28, 2, 2, 55, 1, 2, 107, 109, 111, 142, 0),
+(27, 'Fiend', '\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus molestie id dui in malesuada. Donec consequat accumsan ante, in pellentesque erat lobortis eget. Etiam libero dui, pellentesque eu velit in, imperdiet bibendum diam. Aenean nec bibendum sapien. Praesent in neque odio. Aliquam scelerisque turpis nec ante varius, vel gravida arcu pulvinar. Aliquam porta neque quis tortor mollis, varius vulputate magna pretium. Quisque egestas sagittis aliquam. Curabitur mauris ipsum, congue ac lacinia eu, commodo in turpis.\r\n\r\nSed sit amet lobortis est. Ut vel magna tortor. Mauris aliquet nisi id porta facilisis. Nunc aliquet dapibus metus. Ut a tellus nec nibh varius semper. Nullam fermentum scelerisque lorem eget dapibus. Fusce interdum cursus dui sit amet interdum. Curabitur aliquam, orci non vestibulum finibus, metus diam fermentum est, scelerisque lobortis mi mauris volutpat nibh. Mauris at sagittis eros, vestibulum interdum nibh.\r\n\r\nNunc lacinia tincidunt lorem nec ultrices. Cras ornare lacus ex, vitae sodales enim tincidunt non. Mauris fringilla pretium leo. Phasellus mattis libero ac odio hendrerit efficitur. Pellentesque eget faucibus tortor, et pretium quam. Pellentesque maximus, felis eget ornare tempus, augue nunc bibendum sapien, luctus posuere nisi velit eu mauris. Sed luctus et turpis eget consequat. Etiam sed libero condimentum, porttitor risus sit amet, dignissim eros. Sed tincidunt metus non ultrices iaculis. Fusce faucibus suscipit est, eu tristique tellus fermentum sed.\r\n\r\nAliquam nec nulla commodo, pellentesque magna ut, accumsan eros. Nam nulla nisi, iaculis eu lacinia vel, tincidunt id enim. Duis dignissim luctus diam, vel eleifend eros congue in. Cras non magna pulvinar, imperdiet enim eu, tincidunt nisl. Sed rhoncus nisi sed molestie congue. Vivamus id diam consectetur tellus iaculis mollis vel sagittis enim. Praesent porttitor tincidunt arcu, in accumsan turpis. Fusce maximus lacinia efficitur. Integer nec viverra nunc. Praesent ut sapien odio. Pellentesque varius congue dui non laoreet. Curabitur semper feugiat tortor, in cursus leo efficitur sit amet. Ut non tortor ex. Donec blandit arcu quis justo congue, efficitur ultrices ligula sollicitudin.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam lacinia lacinia ex eget fringilla. Integer tortor justo, dignissim eu velit eget, congue bibendum ex. Donec eu ligula dui. In hac habitasse platea dictumst. Aliquam erat volutpat. Praesent mattis non ante sed maximus. Quisque dignissim leo leo.\r\n\r\nMorbi pellentesque libero at est vulputate lobortis ut vitae justo. Vivamus aliquam tempus orci, non rhoncus sapien fermentum id. Quisque commodo venenatis. ', 'Zdjęcie2.png', 1, 143, 0, 2, 0, 94, 3, 2, 1, 30, 2, 0, 57, 2, 2, 107, 109, 111, 142, 1);
 
 -- --------------------------------------------------------
 
@@ -80,10 +81,10 @@ CREATE TABLE `itemy` (
   `Nazwa` text NOT NULL,
   `Obrazek` text NOT NULL,
   `Slot` tinyint(3) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `itemy`
+-- Zrzut danych tabeli `itemy`
 --
 
 INSERT INTO `itemy` (`ID`, `Nazwa`, `Obrazek`, `Slot`) VALUES
@@ -133,10 +134,10 @@ CREATE TABLE `itemyumiejetnosci` (
   `ItemID` int(11) NOT NULL,
   `Keybind` varchar(2) NOT NULL,
   `UmiejetnosciID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `itemyumiejetnosci`
+-- Zrzut danych tabeli `itemyumiejetnosci`
 --
 
 INSERT INTO `itemyumiejetnosci` (`ItemID`, `Keybind`, `UmiejetnosciID`) VALUES
@@ -245,10 +246,10 @@ CREATE TABLE `komentarze` (
   `Text` text NOT NULL,
   `AutorID` int(11) NOT NULL,
   `BuildID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `komentarze`
+-- Zrzut danych tabeli `komentarze`
 --
 
 INSERT INTO `komentarze` (`ID`, `Text`, `AutorID`, `BuildID`) VALUES
@@ -267,16 +268,32 @@ CREATE TABLE `polubienia` (
   `UserID` int(11) NOT NULL,
   `BuildID` int(11) NOT NULL,
   `Dislike` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `polubienia`
+-- Zrzut danych tabeli `polubienia`
 --
 
 INSERT INTO `polubienia` (`ID`, `UserID`, `BuildID`, `Dislike`) VALUES
-(1, 1, 27, 0),
-(2, 1, 27, 1),
-(3, 1, 27, 0);
+(1, 1, 27, 1),
+(130, 2, 27, 0),
+(132, 2, 21, 1),
+(136, 2, 26, 1),
+(141, 2, 24, 1),
+(143, 2, 16, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `powiadomienia`
+--
+
+CREATE TABLE `powiadomienia` (
+  `ID` int(11) NOT NULL,
+  `BuildID` int(11) NOT NULL,
+  `Tresc` text NOT NULL,
+  `UserID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -289,10 +306,10 @@ CREATE TABLE `umiejetnosci` (
   `Nazwa` text NOT NULL,
   `Opis` text NOT NULL,
   `Obrazek` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `umiejetnosci`
+-- Zrzut danych tabeli `umiejetnosci`
 --
 
 INSERT INTO `umiejetnosci` (`ID`, `Nazwa`, `Opis`, `Obrazek`) VALUES
@@ -352,10 +369,10 @@ CREATE TABLE `uzytkownicy` (
   `Login` text NOT NULL,
   `Password` text NOT NULL,
   `AdminStatus` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `uzytkownicy`
+-- Zrzut danych tabeli `uzytkownicy`
 --
 
 INSERT INTO `uzytkownicy` (`ID`, `Nick`, `Login`, `Password`, `AdminStatus`) VALUES
@@ -412,6 +429,14 @@ ALTER TABLE `polubienia`
   ADD KEY `BuildID` (`BuildID`);
 
 --
+-- Indeksy dla tabeli `powiadomienia`
+--
+ALTER TABLE `powiadomienia`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `UserID` (`UserID`),
+  ADD KEY `BuildID` (`BuildID`);
+
+--
 -- Indeksy dla tabeli `umiejetnosci`
 --
 ALTER TABLE `umiejetnosci`
@@ -424,51 +449,57 @@ ALTER TABLE `uzytkownicy`
   ADD PRIMARY KEY (`ID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT dla zrzuconych tabel
 --
 
 --
--- AUTO_INCREMENT for table `buildy`
+-- AUTO_INCREMENT dla tabeli `buildy`
 --
 ALTER TABLE `buildy`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT for table `itemy`
+-- AUTO_INCREMENT dla tabeli `itemy`
 --
 ALTER TABLE `itemy`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
 
 --
--- AUTO_INCREMENT for table `komentarze`
+-- AUTO_INCREMENT dla tabeli `komentarze`
 --
 ALTER TABLE `komentarze`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `polubienia`
+-- AUTO_INCREMENT dla tabeli `polubienia`
 --
 ALTER TABLE `polubienia`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
 
 --
--- AUTO_INCREMENT for table `umiejetnosci`
+-- AUTO_INCREMENT dla tabeli `powiadomienia`
+--
+ALTER TABLE `powiadomienia`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT dla tabeli `umiejetnosci`
 --
 ALTER TABLE `umiejetnosci`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
--- AUTO_INCREMENT for table `uzytkownicy`
+-- AUTO_INCREMENT dla tabeli `uzytkownicy`
 --
 ALTER TABLE `uzytkownicy`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Constraints for dumped tables
+-- Ograniczenia dla zrzutów tabel
 --
 
 --
--- Constraints for table `buildy`
+-- Ograniczenia dla tabeli `buildy`
 --
 ALTER TABLE `buildy`
   ADD CONSTRAINT `buildy_ibfk_1` FOREIGN KEY (`AutorID`) REFERENCES `uzytkownicy` (`ID`),
@@ -483,21 +514,21 @@ ALTER TABLE `buildy`
   ADD CONSTRAINT `buildy_ibfk_9` FOREIGN KEY (`ZbrojaID`) REFERENCES `itemy` (`ID`);
 
 --
--- Constraints for table `itemyumiejetnosci`
+-- Ograniczenia dla tabeli `itemyumiejetnosci`
 --
 ALTER TABLE `itemyumiejetnosci`
   ADD CONSTRAINT `itemyumiejetnosci_ibfk_1` FOREIGN KEY (`UmiejetnosciID`) REFERENCES `umiejetnosci` (`ID`),
   ADD CONSTRAINT `itemyumiejetnosci_ibfk_2` FOREIGN KEY (`ItemID`) REFERENCES `itemy` (`ID`);
 
 --
--- Constraints for table `komentarze`
+-- Ograniczenia dla tabeli `komentarze`
 --
 ALTER TABLE `komentarze`
   ADD CONSTRAINT `komentarze_ibfk_1` FOREIGN KEY (`BuildID`) REFERENCES `buildy` (`ID`),
   ADD CONSTRAINT `komentarze_ibfk_2` FOREIGN KEY (`AutorID`) REFERENCES `uzytkownicy` (`ID`);
 
 --
--- Constraints for table `polubienia`
+-- Ograniczenia dla tabeli `polubienia`
 --
 ALTER TABLE `polubienia`
   ADD CONSTRAINT `polubienia_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `uzytkownicy` (`ID`),

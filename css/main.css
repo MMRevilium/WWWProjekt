@@ -409,3 +409,12 @@ input[type="button"]:hover,input[type="submit"]:hover{
   white-space: normal;
   color: rgb(185, 70, 70);
 }
+#AdminPanel{
+  text-align: center;
+}
+#AdminPanel table{
+  border: 2px solid white;
+  border-radius:1ch;
+  padding:1ch;
+  margin:auto;
+}

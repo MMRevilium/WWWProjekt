@@ -267,12 +267,27 @@ $(".notif-single").on("click","div>input",function(){
   })
 })
 
-$("#banButton").on("click",function(){
+$(".banButton").on("click",function(){
   let id = $(this).attr('data');
   $.post("fun/banUser.php",{id: id},function(data){
-    if(data=="success"){
-      $("#banButton").attr("value","Zbanowano");  
-    }
     console.log(data);
   })
+  $(this).attr("value","Zbanowano");  
+})
+
+$(".adminBan").on("click",function(){
+  let id = $(this).attr('data');
+  $.post("fun/banUser.php",{id: id},function(data){
+    console.log(data);
+  })
+  $(this).parent().prev().text("Tak");
+  console.log($(this).parent().prev());
+})
+
+$(".unbanButton").on("click",function(){
+  let id = $(this).attr('data');
+  $.post("fun/unbanUser.php",{id: id},function(data){
+    console.log(data);
+  })
+  $(this).parent().prev().text("Nie");
 })

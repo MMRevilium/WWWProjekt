@@ -20,6 +20,7 @@ if (isset($_POST["login"])) {
     $_SESSION["login"] = $result->Nick;
     $_SESSION["id"] = $result->ID;
     $_SESSION["AdminStatus"] = $result->AdminStatus;
+    $_SESSION["BanStatus"] = $result->BanStatus;
     header("Location: index.php");
   } 
   else {

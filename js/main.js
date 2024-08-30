@@ -248,7 +248,7 @@ $("#hideButton").on("click",function addText(){
     let buildID = $(this).attr('data');
     let authorID = $(this).attr('data2');
     $.post("fun/addNotif.php", {text: tekst, buildID: buildID, authorID: authorID}, function(data){
-      if(data=="success") {$(this).attr("value","Wysłano")};
+      if(data=="success") {$("$hideButton").attr("value","Wysłano")};
     })
   })
 })
@@ -271,7 +271,7 @@ $("#banButton").on("click",function(){
   let id = $(this).attr('data');
   $.post("fun/banUser.php",{id: id},function(data){
     if(data=="success"){
-      $(this).attr("value","Zbanowano");  
+      $("#banButton").attr("value","Zbanowano");  
     }
     console.log(data);
   })

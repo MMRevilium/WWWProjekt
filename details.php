@@ -216,8 +216,12 @@
             echo "<img src='img/Plus.png' class='likes' id='plusIcon' data='$row[0]'></div>";
           }
             if($_SESSION['id']==$row[4]){
+              if($_SESSION['BanStatus']!=1){
               echo "<input type='button' value='Edytuj' id='editButton' data='$row[0]'>";
-              echo "<input type='button' value='Usun' id='deleteButton' data='$row[0]' data-img='$row[3]'>";
+              } else {
+                echo "<input type='button' value='Opcja zablokowana'>";
+              }
+              echo "<input type='button' value='Usuń' id='deleteButton' data='$row[0]' data-img='$row[3]'>";
             }
             if($_SESSION['AdminStatus']==1) {
               echo "<input type='button' value='Schowaj post i napisz ostrzeżenie' id='hideButton' data='$row[0]' data2='$row[33]'>";
@@ -231,7 +235,11 @@
           <div id="CommentsForm">
             <textarea id="KomentarzZawartosc"></textarea>
             <?php
+            if ($_SESSION["BanStatus"]!=1){
             echo "<input type='button' value='Dodaj Komentarz' id='addComment' data='$row[0]'>";
+            } else {
+              echo "<input type='button' value='Opcja zablokowana'>";
+            }
             ?>
           </div>
           <div id="CommentsDisplay">

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 29 Sie 2024, 19:44
--- Wersja serwera: 10.4.25-MariaDB
--- Wersja PHP: 8.1.10
+-- Generation Time: Aug 30, 2024 at 10:57 PM
+-- Wersja serwera: 10.4.32-MariaDB
+-- Wersja PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Baza danych: `wwwprojekt`
+-- Database: `wwwprojekt`
 --
 
 -- --------------------------------------------------------
@@ -52,10 +52,10 @@ CREATE TABLE `buildy` (
   `PotkiID` int(11) NOT NULL,
   `BagID` int(11) NOT NULL,
   `Schowaj` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Zrzut danych tabeli `buildy`
+-- Dumping data for table `buildy`
 --
 
 INSERT INTO `buildy` (`ID`, `Nazwa`, `Opis`, `obrazek`, `AutorID`, `BronID`, `BronAbility1`, `BronAbility2`, `BronPassive`, `OffHandID`, `HelmID`, `HelmAbility`, `HelmPassive`, `ZbrojaID`, `ZbrojaAbility`, `ZbrojaPassive`, `ButyID`, `ButyAbility`, `ButyPassive`, `PelerynaID`, `JedzenieID`, `PotkiID`, `BagID`, `Schowaj`) VALUES
@@ -81,10 +81,10 @@ CREATE TABLE `itemy` (
   `Nazwa` text NOT NULL,
   `Obrazek` text NOT NULL,
   `Slot` tinyint(3) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Zrzut danych tabeli `itemy`
+-- Dumping data for table `itemy`
 --
 
 INSERT INTO `itemy` (`ID`, `Nazwa`, `Obrazek`, `Slot`) VALUES
@@ -134,10 +134,10 @@ CREATE TABLE `itemyumiejetnosci` (
   `ItemID` int(11) NOT NULL,
   `Keybind` varchar(2) NOT NULL,
   `UmiejetnosciID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Zrzut danych tabeli `itemyumiejetnosci`
+-- Dumping data for table `itemyumiejetnosci`
 --
 
 INSERT INTO `itemyumiejetnosci` (`ItemID`, `Keybind`, `UmiejetnosciID`) VALUES
@@ -246,10 +246,10 @@ CREATE TABLE `komentarze` (
   `Text` text NOT NULL,
   `AutorID` int(11) NOT NULL,
   `BuildID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Zrzut danych tabeli `komentarze`
+-- Dumping data for table `komentarze`
 --
 
 INSERT INTO `komentarze` (`ID`, `Text`, `AutorID`, `BuildID`) VALUES
@@ -268,10 +268,10 @@ CREATE TABLE `polubienia` (
   `UserID` int(11) NOT NULL,
   `BuildID` int(11) NOT NULL,
   `Dislike` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Zrzut danych tabeli `polubienia`
+-- Dumping data for table `polubienia`
 --
 
 INSERT INTO `polubienia` (`ID`, `UserID`, `BuildID`, `Dislike`) VALUES
@@ -293,7 +293,7 @@ CREATE TABLE `powiadomienia` (
   `BuildID` int(11) NOT NULL,
   `Tresc` text NOT NULL,
   `UserID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -306,10 +306,10 @@ CREATE TABLE `umiejetnosci` (
   `Nazwa` text NOT NULL,
   `Opis` text NOT NULL,
   `Obrazek` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Zrzut danych tabeli `umiejetnosci`
+-- Dumping data for table `umiejetnosci`
 --
 
 INSERT INTO `umiejetnosci` (`ID`, `Nazwa`, `Opis`, `Obrazek`) VALUES
@@ -368,16 +368,17 @@ CREATE TABLE `uzytkownicy` (
   `Nick` text NOT NULL,
   `Login` text NOT NULL,
   `Password` text NOT NULL,
-  `AdminStatus` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `AdminStatus` tinyint(1) DEFAULT NULL,
+  `BanStatus` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Zrzut danych tabeli `uzytkownicy`
+-- Dumping data for table `uzytkownicy`
 --
 
-INSERT INTO `uzytkownicy` (`ID`, `Nick`, `Login`, `Password`, `AdminStatus`) VALUES
-(1, 'Revilium', 'Revilium', '6c14da109e294d1e8155be8aa4b1ce8e', NULL),
-(2, 'Admin', 'Admin', '21232f297a57a5a743894a0e4a801fc3', 1);
+INSERT INTO `uzytkownicy` (`ID`, `Nick`, `Login`, `Password`, `AdminStatus`, `BanStatus`) VALUES
+(1, 'Revilium', 'Revilium', '6c14da109e294d1e8155be8aa4b1ce8e', NULL, 1),
+(2, 'Admin', 'Admin', '21232f297a57a5a743894a0e4a801fc3', 1, 0);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -449,57 +450,57 @@ ALTER TABLE `uzytkownicy`
   ADD PRIMARY KEY (`ID`);
 
 --
--- AUTO_INCREMENT dla zrzuconych tabel
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT dla tabeli `buildy`
+-- AUTO_INCREMENT for table `buildy`
 --
 ALTER TABLE `buildy`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT dla tabeli `itemy`
+-- AUTO_INCREMENT for table `itemy`
 --
 ALTER TABLE `itemy`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
 
 --
--- AUTO_INCREMENT dla tabeli `komentarze`
+-- AUTO_INCREMENT for table `komentarze`
 --
 ALTER TABLE `komentarze`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT dla tabeli `polubienia`
+-- AUTO_INCREMENT for table `polubienia`
 --
 ALTER TABLE `polubienia`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
 
 --
--- AUTO_INCREMENT dla tabeli `powiadomienia`
+-- AUTO_INCREMENT for table `powiadomienia`
 --
 ALTER TABLE `powiadomienia`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT dla tabeli `umiejetnosci`
+-- AUTO_INCREMENT for table `umiejetnosci`
 --
 ALTER TABLE `umiejetnosci`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
--- AUTO_INCREMENT dla tabeli `uzytkownicy`
+-- AUTO_INCREMENT for table `uzytkownicy`
 --
 ALTER TABLE `uzytkownicy`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Ograniczenia dla zrzutów tabel
+-- Constraints for dumped tables
 --
 
 --
--- Ograniczenia dla tabeli `buildy`
+-- Constraints for table `buildy`
 --
 ALTER TABLE `buildy`
   ADD CONSTRAINT `buildy_ibfk_1` FOREIGN KEY (`AutorID`) REFERENCES `uzytkownicy` (`ID`),
@@ -514,21 +515,21 @@ ALTER TABLE `buildy`
   ADD CONSTRAINT `buildy_ibfk_9` FOREIGN KEY (`ZbrojaID`) REFERENCES `itemy` (`ID`);
 
 --
--- Ograniczenia dla tabeli `itemyumiejetnosci`
+-- Constraints for table `itemyumiejetnosci`
 --
 ALTER TABLE `itemyumiejetnosci`
   ADD CONSTRAINT `itemyumiejetnosci_ibfk_1` FOREIGN KEY (`UmiejetnosciID`) REFERENCES `umiejetnosci` (`ID`),
   ADD CONSTRAINT `itemyumiejetnosci_ibfk_2` FOREIGN KEY (`ItemID`) REFERENCES `itemy` (`ID`);
 
 --
--- Ograniczenia dla tabeli `komentarze`
+-- Constraints for table `komentarze`
 --
 ALTER TABLE `komentarze`
   ADD CONSTRAINT `komentarze_ibfk_1` FOREIGN KEY (`BuildID`) REFERENCES `buildy` (`ID`),
   ADD CONSTRAINT `komentarze_ibfk_2` FOREIGN KEY (`AutorID`) REFERENCES `uzytkownicy` (`ID`);
 
 --
--- Ograniczenia dla tabeli `polubienia`
+-- Constraints for table `polubienia`
 --
 ALTER TABLE `polubienia`
   ADD CONSTRAINT `polubienia_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `uzytkownicy` (`ID`),

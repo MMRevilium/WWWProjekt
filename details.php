@@ -244,7 +244,7 @@
           </div>
           <div id="CommentsDisplay">
             <?php
-            $sql = "SELECT uzytkownicy.Nick,Text  FROM `komentarze` JOIN uzytkownicy WHERE uzytkownicy.ID = AutorID";
+            $sql = "SELECT uzytkownicy.Nick,Text  FROM `komentarze` JOIN uzytkownicy WHERE uzytkownicy.ID = komentarze.AutorID AND BuildID = $row[0]";
             $result = $conn->query($sql);
             while($row = $result->fetch_row()){
               echo "<p>u/$row[0]<br>$row[1]</p>";

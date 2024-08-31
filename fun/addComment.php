@@ -7,6 +7,7 @@
 
   $sql = "INSERT INTO komentarze (ID, Text, AutorID, BuildID) VALUES (NULL, '$text', $autor, $id)"; 
   $conn->query($sql);
-  //debug
-  echo $sql."||".$id."|".$autor;
+  echo "<p>
+  $_SESSION[login]<br>$text
+  </p>"
 ?>

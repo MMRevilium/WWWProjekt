@@ -100,7 +100,9 @@ $("#deleteButton").on("click",function(){
 $("#addComment").on("click",function(){
   $.post("fun/addComment.php", {id: $(this).attr('data'), text: $("#KomentarzZawartosc").val()}, function(data){
     if (data) {
-      $("#CommentsDisplay").text(data);
+      let save = $("#CommentsDisplay").html();
+      save+=data;
+      $("#CommentsDisplay").html(save);
     }
   })
   // let id=$(this).attr('data');

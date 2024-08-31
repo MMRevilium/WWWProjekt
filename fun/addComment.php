@@ -8,6 +8,6 @@
   $sql = "INSERT INTO komentarze (ID, Text, AutorID, BuildID) VALUES (NULL, '$text', $autor, $id)"; 
   $conn->query($sql);
   echo "<p>
-  $_SESSION[login]<br>$text
+  u/$_SESSION[login]<br>$text
   </p>"
 ?>

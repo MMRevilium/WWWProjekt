@@ -127,6 +127,7 @@ input[type="button"]:hover,input[type="submit"]:hover{
 }
 .buildInfo{
   font-size: 140%;
+  -webkit-text-stroke: 1.2px rgb(0, 0, 0);
 }
 .buildInfo>h3{
   margin:0;

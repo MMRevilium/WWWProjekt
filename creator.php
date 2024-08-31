@@ -25,7 +25,7 @@
               if(in_array($i,array(2,4,5,8))){
                 $wypisz=$wypisz."class='Ability'>";
               }else {
-                $wypisz=$wypisz."";
+                $wypisz=$wypisz.">";
               }
               echo $wypisz;
               while($row = $result->fetch_row()){

@@ -66,15 +66,15 @@
       } 
     }
     if(isset($_GET["slot1"]) && $_GET["slot1"] != ""){
-      $sql .= " AND b.BronID = $_GET[slot1]";
+      $sql .= " AND b.BagID = $_GET[slot1]";
   }
   
   if(isset($_GET["slot2"]) && $_GET["slot2"] != ""){
-      $sql .= " AND b.BronID = $_GET[slot2]";
+      $sql .= " AND b.HelmID = $_GET[slot2]";
   }
   
   if(isset($_GET["slot3"]) && $_GET["slot3"] != ""){
-      $sql .= " AND b.BronID = $_GET[slot3]";
+      $sql .= " AND b.PelerynaID = $_GET[slot3]";
   }
   
   if(isset($_GET["slot4"]) && $_GET["slot4"] != ""){
@@ -82,25 +82,24 @@
   }
   
   if(isset($_GET["slot5"]) && $_GET["slot5"] != ""){
-      $sql .= " AND b.BronID = $_GET[slot5]";
+      $sql .= " AND b.ZbrojaID = $_GET[slot5]";
   }
   
   if(isset($_GET["slot6"]) && $_GET["slot6"] != ""){
-      $sql .= " AND b.BronID = $_GET[slot6]";
+      $sql .= " AND b.OffhandID = $_GET[slot6]";
   }
   
   if(isset($_GET["slot7"]) && $_GET["slot7"] != ""){
-      $sql .= " AND b.BronID = $_GET[slot7]";
+      $sql .= " AND b.JedzenieID = $_GET[slot7]";
   }
   
   if(isset($_GET["slot8"]) && $_GET["slot8"] != ""){
-      $sql .= " AND b.BronID = $_GET[slot8]";
+      $sql .= " AND b.ButyID = $_GET[slot8]";
   }
   
   if(isset($_GET["slot9"]) && $_GET["slot9"] != ""){
-      $sql .= " AND b.BronID = $_GET[slot9]";
+      $sql .= " AND b.PotkiID = $_GET[slot9]";
   }
-    
 
     $result = $conn->query($sql);
 
